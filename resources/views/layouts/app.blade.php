@@ -73,7 +73,7 @@
         }
 
         .topbar-brand img {
-            width: 34px;
+            width: 134px;
             height: 34px;
             object-fit: contain;
         }
@@ -684,7 +684,7 @@
     <aside class="sidebar" id="sidebar">
         <nav>
             <a href="#" class="nav-link active"><i class="bi bi-building"></i> Informasi Calon Mitra</a>
-            <a href="#" class="nav-link"><i class="bi bi-geo-alt"></i> Pengajuan Lokasi SPPG</a>
+            <a href="{{ route() }}" class="nav-link"><i class="bi bi-geo-alt"></i> Pengajuan Lokasi SPPG</a>
             <a href="#" class="nav-link"><i class="bi bi-link-45deg"></i> SPPG Mitra Non-Yayasan</a>
         </nav>
     </aside>

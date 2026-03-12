@@ -1,0 +1,572 @@
+@extends('layouts.app')
+
+@section('content')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+        html,
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        /* ─── PAGE WRAPPER ─── */
+        .sppg-page {
+            padding: 28px 32px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ─── BREADCRUMB ─── */
+        .breadcrumb-custom {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-custom a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: #1a2a4a;
+        }
+
+        .breadcrumb-custom i {
+            font-size: 11px;
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .btn-add {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #0f1f3d;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s, transform 0.12s;
+            white-space: nowrap;
+        }
+
+        .btn-add:hover {
+            background: #1a3060;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-add:active {
+            transform: translateY(0);
+        }
+
+        /* ─── CARD ─── */
+        .table-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e5e9ef;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ─── SEARCH BAR ─── */
+        .table-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px 20px 0 20px;
+        }
+
+        .search-wrap {
+            position: relative;
+            width: 220px;
+        }
+
+        .search-wrap i {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 12px 8px 32px;
+            border: 1.5px solid #e5e9ef;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #111827;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .search-input:focus {
+            border-color: #1a2a4a;
+            box-shadow: 0 0 0 3px rgba(26, 42, 74, 0.07);
+        }
+
+        /* ─── TABLE SCROLL WRAPPER ─── */
+        .table-scroll {
+            overflow-x: auto;
+            overflow-y: auto;
+            flex: 1;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ─── TABLE ─── */
+        .sppg-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+            font-size: 13.5px;
+        }
+
+        .sppg-table thead tr {
+            border-top: 1px solid #e5e9ef;
+            border-bottom: 1.5px solid #e5e9ef;
+        }
+
+        .sppg-table th {
+            padding: 11px 14px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 13px;
+            white-space: nowrap;
+            background: #fff;
+            text-align: left;
+            user-select: none;
+        }
+
+        .sppg-table th.sortable {
+            cursor: pointer;
+        }
+
+        .sppg-table th.sortable:hover {
+            color: #1a2a4a;
+        }
+
+        .th-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .sort-icon {
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        .sppg-table tbody tr {
+            border-bottom: 1px solid #f0f2f5;
+            transition: background 0.12s;
+            vertical-align: top;
+        }
+
+        .sppg-table tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .sppg-table td {
+            padding: 14px 14px;
+            color: #374151;
+            font-size: 13.5px;
+            vertical-align: middle;
+        }
+
+        /* ID SPPG col */
+        .td-id {
+            font-weight: 600;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        /* Status badges */
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-pks {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .badge-tolak {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .badge-proses {
+            background: #fef9c3;
+            color: #a16207;
+        }
+
+        .badge-terima {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        /* Kesiapan tags */
+        .kesiapan-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            min-width: 200px;
+        }
+
+        .tag-kesiapan {
+            background: #f3f4f6;
+            color: #374151;
+            font-size: 11.5px;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 5px;
+            white-space: nowrap;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* ─── FOOTER ─── */
+        .table-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-top: 1px solid #e5e9ef;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .table-footer-info {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .per-page-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .per-page-select {
+            padding: 5px 28px 5px 10px;
+            border: 1.5px solid #e5e9ef;
+            border-radius: 7px;
+            font-size: 13px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #374151;
+            background: #fff;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            transition: border-color 0.15s;
+        }
+
+        .per-page-select:focus {
+            border-color: #1a2a4a;
+        }
+
+        /* ─── EMPTY STATE ─── */
+        .empty-row td {
+            text-align: center;
+            padding: 40px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 767px) {
+            .sppg-page {
+                padding: 16px;
+            }
+
+            .page-title {
+                font-size: 20px;
+            }
+
+            .table-toolbar {
+                padding: 12px 14px 0;
+            }
+
+            .search-wrap {
+                width: 100%;
+            }
+
+            .table-toolbar {
+                justify-content: stretch;
+            }
+
+            .table-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <div class="sppg-page">
+
+        {{-- Breadcrumb --}}
+        <div class="breadcrumb-custom">
+            <a href="#">Pengajuan Lokasi SPPG</a>
+            <i class="bi bi-chevron-right"></i>
+            <span>Daftar</span>
+        </div>
+
+        {{-- Header --}}
+        <div class="page-header">
+            <h1 class="page-title">Pengajuan Lokasi SPPG</h1>
+            <a href="{{ route('sppg.create') }}" class="btn-add">
+                <i class="bi bi-plus-lg"></i> Ajukan Lokasi Baru
+            </a>
+        </div>
+
+        {{-- Table Card --}}
+        <div class="table-card">
+
+            {{-- Toolbar --}}
+            <div class="table-toolbar">
+                <div class="search-wrap">
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="search-input" placeholder="Cari" id="searchInput">
+                </div>
+            </div>
+
+            {{-- Table --}}
+            <div class="table-scroll">
+                <table class="sppg-table" id="sppgTable">
+                    <thead>
+                        <tr>
+                            <th class="sortable" onclick="sortTable(0)">
+                                <span class="th-inner">ID SPPG <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th>Status</th>
+                            <th class="sortable" onclick="sortTable(2)">
+                                <span class="th-inner">Provinsi <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th class="sortable" onclick="sortTable(3)">
+                                <span class="th-inner">Kota/Kabupaten <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th class="sortable" onclick="sortTable(4)">
+                                <span class="th-inner">Kecamatan <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th class="sortable" onclick="sortTable(5)">
+                                <span class="th-inner">Kelurahan/Desa <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th class="sortable" onclick="sortTable(6)">
+                                <span class="th-inner">Luas Tanah <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th class="sortable" onclick="sortTable(7)">
+                                <span class="th-inner">Luas Dapur <i class="bi bi-chevron-expand sort-icon"></i></span>
+                            </th>
+                            <th>Kesiapan SPPG</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @forelse ($lokasi ?? [] as $item)
+                            <tr>
+                                <td class="td-id">{{ $item->id_sppg }}</td>
+                                <td>
+                                    @php
+                                        $statusClass = match (strtolower($item->status)) {
+                                            'pks' => 'badge-pks',
+                                            'ditolak' => 'badge-tolak',
+                                            'proses' => 'badge-proses',
+                                            'diterima' => 'badge-terima',
+                                            default => 'badge-proses',
+                                        };
+                                    @endphp
+                                    <span class="badge-status {{ $statusClass }}">{{ $item->status }}</span>
+                                </td>
+                                <td>{{ $item->provinsi }}</td>
+                                <td>{{ $item->kota }}</td>
+                                <td>{{ $item->kecamatan }}</td>
+                                <td>{{ $item->kelurahan }}</td>
+                                <td>{{ $item->luas_tanah }}</td>
+                                <td>{{ $item->luas_dapur }}</td>
+                                <td>
+                                    <div class="kesiapan-wrap">
+                                        @foreach ($item->kesiapan ?? [] as $tag)
+                                            <span class="tag-kesiapan">{{ $tag }}</span>
+                                        @endforeach
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            {{-- DEMO DATA (hapus jika sudah ada data dari controller) --}}
+                            <tr>
+                                <td class="td-id">MKT1YN3D</td>
+                                <td><span class="badge-status badge-pks">PKS</span></td>
+                                <td>JAWA BARAT</td>
+                                <td>KAB. BOGOR</td>
+                                <td>BOJONG GEDE</td>
+                                <td>SUSUKAN</td>
+                                <td>1250</td>
+                                <td>&gt;400</td>
+                                <td>
+                                    <div class="kesiapan-wrap">
+                                        <span class="tag-kesiapan">Alat K3</span>
+                                        <span class="tag-kesiapan">Pekerja Lokal</span>
+                                        <span class="tag-kesiapan">Pemasok Bahan Baku</span>
+                                        <span class="tag-kesiapan">Peralatan Dapur</span>
+                                        <span class="tag-kesiapan">Instalasi Listrik</span>
+                                        <span class="tag-kesiapan">Alternatif Listrik</span>
+                                        <span class="tag-kesiapan">Instalasi Air</span>
+                                        <span class="tag-kesiapan">Kendaraan Distribusi Makanan</span>
+                                        <span class="tag-kesiapan">Instalasi Gas</span>
+                                        <span class="tag-kesiapan">Peralatan Masak</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">AOGCL2GS</td>
+                                <td><span class="badge-status badge-tolak">Ditolak</span></td>
+                                <td>JAWA BARAT</td>
+                                <td>KAB. BOGOR</td>
+                                <td>BOJONG GEDE</td>
+                                <td>SUSUKAN</td>
+                                <td>1200</td>
+                                <td>&gt;400</td>
+                                <td>
+                                    <div class="kesiapan-wrap"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">IDE125ZM</td>
+                                <td><span class="badge-status badge-tolak">Ditolak</span></td>
+                                <td>JAWA BARAT</td>
+                                <td>KAB. BOGOR</td>
+                                <td>CISEENG</td>
+                                <td>KARIHKIL</td>
+                                <td>1200</td>
+                                <td>&gt;400</td>
+                                <td>
+                                    <div class="kesiapan-wrap"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">XYZ890AB</td>
+                                <td><span class="badge-status badge-proses">Proses</span></td>
+                                <td>JAWA BARAT</td>
+                                <td>KAB. BOGOR</td>
+                                <td>BOJONG GEDE</td>
+                                <td>SUSUKAN</td>
+                                <td>1300</td>
+                                <td>&gt;400</td>
+                                <td>
+                                    <div class="kesiapan-wrap"></div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
+            {{-- Footer --}}
+            <div class="table-footer">
+                <div class="table-footer-info" id="footerInfo">
+                    Menampilkan 1 sampai 5 dari 5 hasil
+                </div>
+                <div class="per-page-wrap">
+                    <span>per halaman</span>
+                    <select class="per-page-select" id="perPage">
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ── Live search ──
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#tableBody tr');
+            let visible = 0;
+            rows.forEach(row => {
+                const match = row.textContent.toLowerCase().includes(q);
+                row.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+            const total = rows.length;
+            document.getElementById('footerInfo').textContent =
+                `Menampilkan ${visible} dari ${total} hasil`;
+        });
+
+        // ── Column sort ──
+        let sortDir = {};
+
+        function sortTable(colIdx) {
+            const tbody = document.getElementById('tableBody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const asc = !sortDir[colIdx];
+            sortDir = {};
+            sortDir[colIdx] = asc;
+
+            rows.sort((a, b) => {
+                const aVal = a.cells[colIdx]?.textContent.trim() ?? '';
+                const bVal = b.cells[colIdx]?.textContent.trim() ?? '';
+                return asc ?
+                    aVal.localeCompare(bVal, 'id', {
+                        numeric: true
+                    }) :
+                    bVal.localeCompare(aVal, 'id', {
+                        numeric: true
+                    });
+            });
+
+            rows.forEach(r => tbody.appendChild(r));
+        }
+    </script>
+
+@endsection
