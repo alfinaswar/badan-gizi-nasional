@@ -5,11 +5,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
         html,
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #f4f6f9;
-            margin: 0;
-        }
 
         /* ─── PAGE WRAPPER ─── */
         .sppg-page {
@@ -349,184 +344,245 @@
             }
         }
     </style>
+    <main class="main-content">
+        <div class="page-inner">
 
-    <div class="sppg-page">
-
-        {{-- Breadcrumb --}}
-        <div class="breadcrumb-custom">
-            <a href="#">Pengajuan Lokasi SPPG</a>
-            <i class="bi bi-chevron-right"></i>
-            <span>Daftar</span>
-        </div>
-
-        {{-- Header --}}
-        <div class="page-header">
-            <h1 class="page-title">Pengajuan Lokasi SPPG</h1>
-            <a href="{{ route('sppg.create') }}" class="btn-add">
-                <i class="bi bi-plus-lg"></i> Ajukan Lokasi Baru
-            </a>
-        </div>
-
-        {{-- Table Card --}}
-        <div class="table-card">
-
-            {{-- Toolbar --}}
-            <div class="table-toolbar">
-                <div class="search-wrap">
-                    <i class="bi bi-search"></i>
-                    <input type="text" class="search-input" placeholder="Cari" id="searchInput">
-                </div>
+            {{-- Breadcrumb --}}
+            <div class="breadcrumb-custom">
+                <a href="#">Pengajuan Lokasi SPPG</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Daftar</span>
             </div>
 
-            {{-- Table --}}
-            <div class="table-scroll">
-                <table class="sppg-table" id="sppgTable">
-                    <thead>
-                        <tr>
-                            <th class="sortable" onclick="sortTable(0)">
-                                <span class="th-inner">ID SPPG <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th>Status</th>
-                            <th class="sortable" onclick="sortTable(2)">
-                                <span class="th-inner">Provinsi <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th class="sortable" onclick="sortTable(3)">
-                                <span class="th-inner">Kota/Kabupaten <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th class="sortable" onclick="sortTable(4)">
-                                <span class="th-inner">Kecamatan <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th class="sortable" onclick="sortTable(5)">
-                                <span class="th-inner">Kelurahan/Desa <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th class="sortable" onclick="sortTable(6)">
-                                <span class="th-inner">Luas Tanah <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th class="sortable" onclick="sortTable(7)">
-                                <span class="th-inner">Luas Dapur <i class="bi bi-chevron-expand sort-icon"></i></span>
-                            </th>
-                            <th>Kesiapan SPPG</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        @forelse ($lokasi ?? [] as $item)
-                            <tr>
-                                <td class="td-id">{{ $item->id_sppg }}</td>
-                                <td>
-                                    @php
-                                        $statusClass = match (strtolower($item->status)) {
-                                            'pks' => 'badge-pks',
-                                            'ditolak' => 'badge-tolak',
-                                            'proses' => 'badge-proses',
-                                            'diterima' => 'badge-terima',
-                                            default => 'badge-proses',
-                                        };
-                                    @endphp
-                                    <span class="badge-status {{ $statusClass }}">{{ $item->status }}</span>
-                                </td>
-                                <td>{{ $item->provinsi }}</td>
-                                <td>{{ $item->kota }}</td>
-                                <td>{{ $item->kecamatan }}</td>
-                                <td>{{ $item->kelurahan }}</td>
-                                <td>{{ $item->luas_tanah }}</td>
-                                <td>{{ $item->luas_dapur }}</td>
-                                <td>
-                                    <div class="kesiapan-wrap">
-                                        @foreach ($item->kesiapan ?? [] as $tag)
-                                            <span class="tag-kesiapan">{{ $tag }}</span>
-                                        @endforeach
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                            {{-- DEMO DATA (hapus jika sudah ada data dari controller) --}}
-                            <tr>
-                                <td class="td-id">MKT1YN3D</td>
-                                <td><span class="badge-status badge-pks">PKS</span></td>
-                                <td>JAWA BARAT</td>
-                                <td>KAB. BOGOR</td>
-                                <td>BOJONG GEDE</td>
-                                <td>SUSUKAN</td>
-                                <td>1250</td>
-                                <td>&gt;400</td>
-                                <td>
-                                    <div class="kesiapan-wrap">
-                                        <span class="tag-kesiapan">Alat K3</span>
-                                        <span class="tag-kesiapan">Pekerja Lokal</span>
-                                        <span class="tag-kesiapan">Pemasok Bahan Baku</span>
-                                        <span class="tag-kesiapan">Peralatan Dapur</span>
-                                        <span class="tag-kesiapan">Instalasi Listrik</span>
-                                        <span class="tag-kesiapan">Alternatif Listrik</span>
-                                        <span class="tag-kesiapan">Instalasi Air</span>
-                                        <span class="tag-kesiapan">Kendaraan Distribusi Makanan</span>
-                                        <span class="tag-kesiapan">Instalasi Gas</span>
-                                        <span class="tag-kesiapan">Peralatan Masak</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-id">AOGCL2GS</td>
-                                <td><span class="badge-status badge-tolak">Ditolak</span></td>
-                                <td>JAWA BARAT</td>
-                                <td>KAB. BOGOR</td>
-                                <td>BOJONG GEDE</td>
-                                <td>SUSUKAN</td>
-                                <td>1200</td>
-                                <td>&gt;400</td>
-                                <td>
-                                    <div class="kesiapan-wrap"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-id">IDE125ZM</td>
-                                <td><span class="badge-status badge-tolak">Ditolak</span></td>
-                                <td>JAWA BARAT</td>
-                                <td>KAB. BOGOR</td>
-                                <td>CISEENG</td>
-                                <td>KARIHKIL</td>
-                                <td>1200</td>
-                                <td>&gt;400</td>
-                                <td>
-                                    <div class="kesiapan-wrap"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-id">XYZ890AB</td>
-                                <td><span class="badge-status badge-proses">Proses</span></td>
-                                <td>JAWA BARAT</td>
-                                <td>KAB. BOGOR</td>
-                                <td>BOJONG GEDE</td>
-                                <td>SUSUKAN</td>
-                                <td>1300</td>
-                                <td>&gt;400</td>
-                                <td>
-                                    <div class="kesiapan-wrap"></div>
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+            {{-- Header --}}
+            <div class="page-header">
+                <h1 class="page-title">Pengajuan Lokasi SPPG</h1>
+                <a href="javascript:void(0);" class="btn-add" onclick="showConfirmationModal()">
+                    <i class="bi bi-plus-lg"></i> Ajukan Lokasi Baru
+                </a>
             </div>
 
-            {{-- Footer --}}
-            <div class="table-footer">
-                <div class="table-footer-info" id="footerInfo">
-                    Menampilkan 1 sampai 5 dari 5 hasil
-                </div>
-                <div class="per-page-wrap">
-                    <span>per halaman</span>
-                    <select class="per-page-select" id="perPage">
-                        <option value="10" selected>10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
+            <!-- Modal Konfirmasi -->
+            <!-- Modal Penutupan Pendaftaran: Modal ini akan menggantikan modal konfirmasi jika dikonfirmasi -->
+            <div id="confirmationModal"
+                style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.18);">
+                <div
+                    style="position:relative; width:100vw; height:100vh; display:flex; align-items:flex-start; justify-content:center;">
+                    <div id="modal-card"
+                        style="background:#fff; border-radius:16px; width:100%; max-width:410px; min-width:320px; padding:28px 27px 24px 27px; box-shadow: 0 6px 32px rgba(0,0,0,0.12);display:flex; flex-direction:column; align-items:center; margin-top:32px; position:relative;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Badan_Gizi_Nasional.png"
+                            alt="Logo Badan Gizi Nasional"
+                            style="width:110px; height:110px; object-fit:contain; margin-bottom:22px; background:#fff; border-radius:50%;border:3.5px solid #e5e7eb;">
+                        <div
+                            style="font-size:22px; font-weight:700; color:#232b36; margin-bottom:14px; text-align:center; line-height:1.2;">
+                            Penutupan Pendaftaran<br> Mitra BGN
+                        </div>
+                        <div style="font-size:15px; color:#556070; line-height:1.7; text-align:center; margin-bottom:30px;">
+                            Pendaftaran Mitra mitra Satuan Pelayanan Pemenuhan Gizi (SPPG) untuk Program Makan Bergizi
+                            Gratis (MBG) telah ditutup guna mengendalikan jumlah dan sebaran SPPG, agar layanan gizi dapat
+                            tersebar lebih merata. Kami mohon maaf atas ketidaknyamanan yang mungkin timbul dan berterima
+                            kasih atas pengertian serta kerja samanya.
+                        </div>
+                        <button onclick="hideConfirmationModal()"
+                            style="padding:11px 38px;border-radius:8px;border:none;background:#142544;color:#fff;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:12px;">
+                            <i class="bi bi-arrow-left" style="font-size:17px;"></i> Kembali
+                        </button>
+                        <div style="display:flex; gap:22px; align-items:center; justify-content:center; margin-top:3px;">
+                            <a href="https://instagram.com" target="_blank" style="color:#232b36;">
+                                <i class="bi bi-instagram" style="font-size:20px;"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank" style="color:#232b36;">
+                                <i class="bi bi-facebook" style="font-size:19px;"></i>
+                            </a>
+                            <a href="mailto:info@bgn.go.id" style="color:#232b36;">
+                                <i class="bi bi-envelope" style="font-size:19px;"></i>
+                            </a>
+                        </div>
+                        <button onclick="hideConfirmationModal()"
+                            style="position:absolute;top:15px;right:15px;border:none;background:none;font-size:25px;line-height:1;color:#bbc0cd;cursor:pointer;padding:0;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
             </div>
+            <script>
+                function showConfirmationModal() {
+                    document.getElementById('confirmationModal').style.display = 'block';
+                }
 
+                function hideConfirmationModal() {
+                    document.getElementById('confirmationModal').style.display = 'none';
+                }
+
+                function handleConfirm() {
+                    // Ketika tombol Konfirmasi di-klik, tetap tampilkan modal penutupan
+                    showConfirmationModal();
+                }
+            </script>
+
+
+            {{-- Table Card --}}
+            <div class="table-card">
+
+                {{-- Toolbar --}}
+                <div class="table-toolbar">
+                    <div class="search-wrap">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="search-input" placeholder="Cari" id="searchInput">
+                    </div>
+                </div>
+
+                {{-- Table --}}
+                <div class="table-scroll">
+                    <table class="sppg-table" id="sppgTable">
+                        <thead>
+                            <tr>
+                                <th class="sortable" onclick="sortTable(0)">
+                                    <span class="th-inner">ID SPPG <i class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th>Status</th>
+                                <th class="sortable" onclick="sortTable(2)">
+                                    <span class="th-inner">Provinsi <i class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th class="sortable" onclick="sortTable(3)">
+                                    <span class="th-inner">Kota/Kabupaten <i
+                                            class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th class="sortable" onclick="sortTable(4)">
+                                    <span class="th-inner">Kecamatan <i class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th class="sortable" onclick="sortTable(5)">
+                                    <span class="th-inner">Kelurahan/Desa <i
+                                            class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th class="sortable" onclick="sortTable(6)">
+                                    <span class="th-inner">Luas Tanah <i class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th class="sortable" onclick="sortTable(7)">
+                                    <span class="th-inner">Luas Dapur <i class="bi bi-chevron-expand sort-icon"></i></span>
+                                </th>
+                                <th>Kesiapan SPPG</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            @forelse ($lokasi ?? [] as $item)
+                                <tr>
+                                    <td class="td-id">{{ $item->id_sppg }}</td>
+                                    <td>
+                                        @php
+                                            $statusClass = match (strtolower($item->status)) {
+                                                'pks' => 'badge-pks',
+                                                'ditolak' => 'badge-tolak',
+                                                'proses' => 'badge-proses',
+                                                'diterima' => 'badge-terima',
+                                                default => 'badge-proses',
+                                            };
+                                        @endphp
+                                        <span class="badge-status {{ $statusClass }}">{{ $item->status }}</span>
+                                    </td>
+                                    <td>{{ $item->provinsi }}</td>
+                                    <td>{{ $item->kota }}</td>
+                                    <td>{{ $item->kecamatan }}</td>
+                                    <td>{{ $item->kelurahan }}</td>
+                                    <td>{{ $item->luas_tanah }}</td>
+                                    <td>{{ $item->luas_dapur }}</td>
+                                    <td>
+                                        <div class="kesiapan-wrap">
+                                            @foreach ($item->kesiapan ?? [] as $tag)
+                                                <span class="tag-kesiapan">{{ $tag }}</span>
+                                            @endforeach
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                {{-- DEMO DATA (hapus jika sudah ada data dari controller) --}}
+                                <tr>
+                                    <td class="td-id">MKT1YN3D</td>
+                                    <td><span class="badge-status badge-pks">PKS</span></td>
+                                    <td>JAWA BARAT</td>
+                                    <td>KAB. BOGOR</td>
+                                    <td>BOJONG GEDE</td>
+                                    <td>SUSUKAN</td>
+                                    <td>1250</td>
+                                    <td>&gt;400</td>
+                                    <td>
+                                        <div class="kesiapan-wrap">
+                                            <span class="tag-kesiapan">Alat K3</span>
+                                            <span class="tag-kesiapan">Pekerja Lokal</span>
+                                            <span class="tag-kesiapan">Pemasok Bahan Baku</span>
+                                            <span class="tag-kesiapan">Peralatan Dapur</span>
+                                            <span class="tag-kesiapan">Instalasi Listrik</span>
+                                            <span class="tag-kesiapan">Alternatif Listrik</span>
+                                            <span class="tag-kesiapan">Instalasi Air</span>
+                                            <span class="tag-kesiapan">Kendaraan Distribusi Makanan</span>
+                                            <span class="tag-kesiapan">Instalasi Gas</span>
+                                            <span class="tag-kesiapan">Peralatan Masak</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-id">AOGCL2GS</td>
+                                    <td><span class="badge-status badge-tolak">Ditolak</span></td>
+                                    <td>JAWA BARAT</td>
+                                    <td>KAB. BOGOR</td>
+                                    <td>BOJONG GEDE</td>
+                                    <td>SUSUKAN</td>
+                                    <td>1200</td>
+                                    <td>&gt;400</td>
+                                    <td>
+                                        <div class="kesiapan-wrap"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-id">IDE125ZM</td>
+                                    <td><span class="badge-status badge-tolak">Ditolak</span></td>
+                                    <td>JAWA BARAT</td>
+                                    <td>KAB. BOGOR</td>
+                                    <td>CISEENG</td>
+                                    <td>KARIHKIL</td>
+                                    <td>1200</td>
+                                    <td>&gt;400</td>
+                                    <td>
+                                        <div class="kesiapan-wrap"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-id">XYZ890AB</td>
+                                    <td><span class="badge-status badge-proses">Proses</span></td>
+                                    <td>JAWA BARAT</td>
+                                    <td>KAB. BOGOR</td>
+                                    <td>BOJONG GEDE</td>
+                                    <td>SUSUKAN</td>
+                                    <td>1300</td>
+                                    <td>&gt;400</td>
+                                    <td>
+                                        <div class="kesiapan-wrap"></div>
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
+                {{-- Footer --}}
+                <div class="table-footer">
+                    <div class="table-footer-info" id="footerInfo">
+                        Menampilkan 1 sampai 5 dari 5 hasil
+                    </div>
+                    <div class="per-page-wrap">
+                        <span>per halaman</span>
+                        <select class="per-page-select" id="perPage">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-
+    </main>
     <script>
         // ── Live search ──
         document.getElementById('searchInput').addEventListener('input', function() {

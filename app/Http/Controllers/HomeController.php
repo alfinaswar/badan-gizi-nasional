@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function pengajuanLokasi()
+    {
+        return view('pengajuan');
+    }
+
+    public function mitra()
+    {
+        return view('sppg-mitra');
+    }
 }
