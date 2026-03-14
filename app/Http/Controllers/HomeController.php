@@ -30,6 +30,10 @@ class HomeController extends Controller
     {
         return view('pengajuan');
     }
+    public function pengajuanLokasiDetail()
+    {
+        return view('pengajuan-detail');
+    }
 
     public function mitra()
     {

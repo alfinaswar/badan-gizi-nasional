@@ -16,13 +16,13 @@
             {{-- Profile Card --}}
             <div class="profile-card">
                 <div class="profile-card-avatar">
-                    <img src="{{ $mitra->logo ?? '' }}" alt="Logo"
+                    <img src="{{ asset('icon/logo-yayasan.png.jpeg') }}" alt="Logo"
                         onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-building\'></i>'">
                 </div>
                 <div class="profile-card-info">
-                    <h2>{{ $mitra->nama ?? 'Zammarot Abdullah Nurjaman' }}</h2>
+                    <h2>{{ $mitra->nama ?? 'YAYASAN PONDOK PESANTREN MANBA HIDAYATUL MAARIF' }}</h2>
                     <div class="profile-card-meta">
-                        <span>{{ $mitra->email ?? 'zammarotabdullah@gmail.com' }}</span>
+                        <span>{{ $mitra->email ?? 'manbahidayatulmaarif01@gmail.com' }}</span>
                         <span class="sep">|</span>
                         <span>{{ $mitra->telepon ?? '082112556664' }}</span>
                         <span class="sep">|</span>
@@ -76,27 +76,28 @@
                         </div>
                         <div style="margin-bottom: 32px;">
                             <div style="font-weight: 600; margin-bottom: 12px;">Logo Mitra</div>
-                            <img src="{{ asset('icon/BGN_LOGO.png') }}" alt="Logo Mitra"
+                            <img src="{{ asset('icon/logo-yayasan.png.jpeg') }}" alt="Logo Mitra"
                                 style="width:86px;height:86px;object-fit:contain;border-radius:10px;box-shadow:0 0 10px #ececec;margin-bottom:20px;">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Nama Ketua/Direktur Utama<span
                                     class="required">*</span></label>
-                            <input type="text" class="form-control" value="Jekang Abdulah">
+                            <input type="text" class="form-control" value="Ferdy Husin">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Email<span class="required">*</span></label>
-                            <input type="email" class="form-control" value="zammarotabdullah@gmail.com">
+                            <input type="email" class="form-control" value="manbahidayatulmaarif01@gmail.com">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Nomor Telepon<span
                                     class="required">*</span></label>
-                            <input type="text" class="form-control" value="082112556644">
+                            <input type="text" class="form-control" value="08998454419">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Nama Instansi<span
                                     class="required">*</span></label>
-                            <input type="text" class="form-control" value="Zammarot Abdulate Nusyaman">
+                            <input type="text" class="form-control"
+                                value="YAYASAN PONDOK PESANTREN MANBA HIDAYATUL MAARIF">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Tipe Instansi</label>
@@ -147,18 +148,18 @@
                             <label class="form-label" style="font-weight:500;">Desa/Kelurahan<span
                                     class="required">*</span></label>
                             <select class="form-select">
-                                <option selected>BOJONGGEDE</option>
+                                <option selected>Ragajaya</option>
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Kode Pos*</label>
-                            <input type="text" class="form-control" value="16922">
+                            <input type="text" class="form-control" value="16920">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" style="font-weight:500;">Alamat*</label>
-                            <textarea class="form-control" rows="2">JALAN BAMBU KUNING DALAM NO 07 DESA BOJONGGEDE</textarea>
+                            <textarea class="form-control" rows="2">Jl Bakti Kp Ceringin Rt 04/08 Desa Ragajaya </textarea>
                         </div>
 
                         <button type="button" class="btn btn-primary"
