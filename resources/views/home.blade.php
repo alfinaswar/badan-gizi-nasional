@@ -56,13 +56,13 @@
                 <button class="nav-link" onclick="switchTab(this,'legal')">Legal</button>
                 <button class="nav-link" onclick="switchTab(this,'keuangan')">Keuangan</button>
                 <button class="nav-link" onclick="switchTab(this,'calon-sppg')">Calon SPPG <span
-                        class="tab-badge">5</span></button>
+                        class="tab-badge">1</span></button>
                 <button class="nav-link" onclick="switchTab(this,'calon-sppg-mitra')">Calon SPPG Mitra <span
                         class="tab-badge">0</span></button>
                 <button class="nav-link" onclick="switchTab(this,'perwakilan')">Perwakilan Yayasan <span
-                        class="tab-badge">3</span></button>
+                        class="tab-badge">1</span></button>
                 <button class="nav-link" onclick="switchTab(this,'riwayat')">Riwayat Verifikasi Email <span
-                        class="tab-badge">5</span></button>
+                        class="tab-badge">0</span></button>
             </div>
 
             {{-- Tab: Umum --}}
@@ -360,7 +360,7 @@
                                 Digit*</label>
                             <input type="text" class="form-control"
                                 style="width:100%;background:#FAFAFA;border:1.5px solid #E5E7EB;border-radius:7px;height:38px;padding:7px 12px;font-size:15px;color:#374151;"
-                                value="0873072240180000" readonly>
+                                value="92.518.776.7-403.000" readonly>
                             <div style="font-size:12.5px;color:#A3A3A3;margin-top:5px;">
                                 Jika NPWP masih terdiri dari 15 digit, tambahkan angka '0' di awal
                             </div>
@@ -370,7 +370,7 @@
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <input type="text" class="form-control"
                                     style="width:100%;background:#FAFAFA;border:1.5px solid #E5E7EB;border-radius:7px;height:38px;padding:7px 12px;font-size:15px;color:#374151;"
-                                    value="Zamzami Abdullah Nurjamen" readonly>
+                                    value="YAYASAN PESANTREN MANBA HIDAYATUL MAARIF" readonly>
                                 <button type="button" class="btn-copy"
                                     style="background:none;border:none;color:#4877E2;font-size:13px;cursor:pointer;padding:0;height:auto;"
                                     disabled>Samakan dengan nama instansi</button>
@@ -652,29 +652,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding:10px 12px;">Rihuly Soenhan</td>
-                                    <td style="padding:10px 12px;">bambukunings04@gmail.com</td>
-                                    <td style="padding:10px 12px;">087857249134</td>
+                                    <td style="padding:10px 12px;">Lukmanul Hakim</td>
+                                    <td style="padding:10px 12px;">lukmanmbg01@gmail.com</td>
+                                    <td style="padding:10px 12px;">08998454419</td>
                                     <td style="padding:10px 12px;">
-                                        <a href="#" style="color:#3375CB;text-decoration:underline;">M7NTY3N3D</a>
+                                        <a href="#" style="color:#3375CB;text-decoration:underline;">-</a>
                                     </td>
-                                    <td style="padding:10px 12px;">320137690500001</td>
-                                    <td style="padding:10px 12px;">
-                                        <a href="#"
-                                            style="color:#3375CB;text-decoration:underline;">KTP_RIHULY_SOENHAN.jpeg</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px 12px;">akmaludin</td>
-                                    <td style="padding:10px 12px;">akmaludinscienc@gmail.com</td>
-                                    <td style="padding:10px 12px;">
-                                        <span style="color:#22B573;">+6285778230721 <i class="bi bi-check-circle-fill"
-                                                style="color:#22B573;font-size:13px;margin-left:3px;vertical-align:middle;"></i></span>
-                                    </td>
-                                    <td style="padding:10px 12px;">
-                                        <a href="#" style="color:#3375CB;text-decoration:underline;">QE2SN13D</a>
-                                    </td>
-                                    <td style="padding:10px 12px;">320133040800001</td>
+                                    <td style="padding:10px 12px;">3201131911900008</td>
                                     <td style="padding:10px 12px;">
                                     </td>
                                 </tr>

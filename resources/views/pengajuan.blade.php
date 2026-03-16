@@ -474,16 +474,15 @@
                                 <td>RAGAJAYA</td>
                                 <td>300 m<sup>2</sup></td>
                                 <td>300 m<sup>2</sup></td>
-                                <td>
-                                    <div class="kesiapan-wrap">
-                                        {{-- Kesiapan SPPG disesuaikan input data --}}
-                                        {{-- Contoh, silakan edit berdasarkan kesiapan nyata --}}
+                                <td> -
+                                    {{-- <div class="kesiapan-wrap">
+
                                         <span class="tag-kesiapan">Alat K3</span>
                                         <span class="tag-kesiapan">Pekerja Lokal</span>
                                         <span class="tag-kesiapan">Pemasok Bahan Baku</span>
                                         <span class="tag-kesiapan">Peralatan Dapur</span>
-                                        {{-- dst, tambahkan jika ada input baru --}}
-                                    </div>
+
+                                    </div> --}}
                                 </td>
                                 <td>
                                     <a href="{{ route('otp.pl-detail') }}" class="btn btn-primary btn-sm"
