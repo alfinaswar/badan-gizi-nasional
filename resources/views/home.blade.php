@@ -30,10 +30,10 @@
                     </div>
                 </div>
                 <div class="profile-card-id">
-                    <span>ID Mitra : {{ $mitra->id_mitra ?? 'DSUGYT' }}
+                    <span>ID Mitra : {{ $mitra->id_mitra ?? 'B2GCL2GS' }}
                         <i class="bi bi-copy ms-1" style="cursor:pointer;font-size:13px;" title="Salin ID"></i>
                     </span>
-                    <strong>{{ $mitra->nomor ?? '2306250037141' }}</strong>
+                    <strong>{{ $mitra->nomor ?? '1306250071621' }}</strong>
                 </div>
             </div>
 
@@ -221,10 +221,16 @@
                             <tbody>
                                 <tr style="border-bottom:1px solid #f3f3f5;">
                                     <td style="font-size:14px; color:#232338; background:transparent;">Pendirian</td>
-                                    <td style="font-size:14px; color:#232338; background:transparent;">1-</td>
-                                    <td style="font-size:14px; color:#232338; background:transparent;">2021-01-08</td>
-                                    <td style="font-size:14px; color:#232338; background:transparent;">ERNITA WILZA</td>
+                                    <td style="font-size:14px; color:#232338; background:transparent;">AHU-0264.AH.02.01
+                                    </td>
+                                    <td style="font-size:14px; color:#232338; background:transparent;">2025-08-06</td>06
+                                    <td style="font-size:14px; color:#232338; background:transparent;">ALEX MONDRI, SH,
+                                        MKn.</td>
                                     <td style="font-size:14px; color:#2563dc; background:transparent;white-space:nowrap;">
+                                        <a href="{{ asset('file/Dokumen51.pdf') }}" download class="btn btn-link"
+                                            style="padding:0;font-size:14px;color:#2563dc;text-decoration:underline;">
+                                            <i class="bi bi-download"></i> Download
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -272,30 +278,24 @@
                             <tbody>
                                 <tr style="border-bottom:1px solid #f3f3f5;">
                                     <td style="font-size:14px; color:#232338; background:transparent; padding:11px 14px;">
-                                        AHU-0007022.AH.01.04</td>
+                                        AHU-AH.01.06-0055654</td>
                                     <td style="font-size:14px; color:#232338; background:transparent; padding:11px 14px;">
-                                        2021-03-08</td>
+                                        2025-08-07</td>
                                     <td style="font-size:14px; background:transparent; padding:11px 14px;">
-                                        <a href="#" target="_blank"
+                                        <a href="{{ asset('file/Dokumen50.pdf') }}" target="_blank"
                                             style="color:#2563dc; text-decoration:underline;word-break:break-all;">GVJYDSHDFKD4HPHQ3947EX7CU.pdf</a>
                                     </td>
                                     <td
                                         style="font-size:14px;background:transparent; padding:11px 14px;white-space:nowrap;">
-                                        <a href="#"
-                                            style="color:#2196f3;text-decoration:none;font-weight:500;margin-right:14px;display:inline-flex;align-items:center;font-size:14px;"><i
+                                        <a href="#" class="disabled"
+                                            style="pointer-events:none; opacity:0.5; color:#2196f3;text-decoration:none;font-weight:500;margin-right:14px;display:inline-flex;align-items:center;font-size:14px;"><i
                                                 class="bi bi-pencil-square me-1"></i>Ubah</a>
-                                        <a href="#"
-                                            style="color:#ef4444;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;font-size:14px;"><i
+                                        <a href="#" class="disabled"
+                                            style="pointer-events:none; opacity:0.5; color:#ef4444;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;font-size:14px;"><i
                                                 class="bi bi-trash3 me-1"></i>Hapus</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td style="font-size:14px; color:#232338; background:transparent; padding:11px 14px;">
-                                        AHU-0021032.AH.01.04</td>
-                                    <td style="font-size:14px; color:#232338; background:transparent; padding:11px 14px;">
-                                        2021-03-08</td>
-                                    <td style="font-size:14px; background:transparent; padding:11px 14px;"></td>
-                                </tr>
+
                             </tbody>
                         </table>
 
@@ -314,7 +314,7 @@
                             (NIB)</label>
                         <input type="text" class="form-control"
                             style="width:100%;background:#FAFAFA;border:1.5px solid #E5E7EB;border-radius:7px;height:38px;padding:7px 12px;font-size:15px;color:#374151;"
-                            value="230805202307101" readonly>
+                            value="0502260108372" readonly>
                     </div>
                     <div style="margin-bottom:10px;">
                         <label style="display:block;font-size:13px;color:#6B7280;margin-bottom:7px;">File NIB</label>
@@ -330,10 +330,10 @@
                                             fill="#71717A" />
                                     </svg>
                                 </span>
-                                <span
-                                    style="font-size:13.5px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px;">
+                                <a href="{{ asset('file/OSS-NIB-1770283739207.pdf') }}" target="_blank"
+                                    style="font-size:13.5px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px;text-decoration:underline;display:inline-block;">
                                     61_UUM5MC8WPYUS7C5EXB8SRK7U.pdf
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>

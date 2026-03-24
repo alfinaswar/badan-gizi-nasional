@@ -1263,8 +1263,8 @@
                             <i class="bi bi-copy" title="Salin ID" onclick="copyId()"></i>
                         </div>
                         <span class="sppg-sep">•</span>
-                        <span>YAYASAN TERKAIT :
-                            {{ Str::upper(Str::limit($sppg->yayasan ?? 'yayasan pondok pesantren manba Hidayatul maarif')) }}</span>
+                        <span>yayasan terkait :
+                            {{ Str::lower(Str::limit($sppg->yayasan ?? 'yayasan pondok pesantren manba hidayatul maarif')) }}</span>
                     </div>
                 </div>
                 <a href="" class="btn-process">Proses Persiapan</a>
@@ -1283,9 +1283,9 @@
                     </div>
                     <div class="profile-meta">
                         <div class="mid-id">
-                            ID Mitra : {{ $yayasan->id_mitra ?? '8DOZFW' }}
+                            ID Mitra : {{ $yayasan->id_mitra ?? 'B2GCL2GS' }}
                             <i class="bi bi-copy" title="Salin ID"
-                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? '8DOZFW' }}', this)"></i>
+                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? 'B2GCL2GS' }}', this)"></i>
                         </div>
                         <span class="sep">•</span>
                         <span>NPWP: {{ $yayasan->npwp ?? '1000000002936139' }}</span>

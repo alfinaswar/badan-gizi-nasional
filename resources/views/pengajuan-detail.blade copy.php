@@ -746,9 +746,9 @@
                     </div>
                     <div class="profile-meta">
                         <div class="mid-id">
-                            ID Mitra : {{ $yayasan->id_mitra ?? '8DOZFW' }}
+                            ID Mitra : {{ $yayasan->id_mitra ?? 'B2GCL2GS' }}
                             <i class="bi bi-copy" title="Salin ID"
-                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? '8DOZFW' }}', this)"></i>
+                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? 'B2GCL2GS' }}', this)"></i>
                         </div>
                         <span class="sep">•</span>
                         <span>NPWP: {{ $yayasan->npwp ?? '1000000002936139' }}</span>
