@@ -165,8 +165,8 @@
         .sidebar {
             width: 240px;
             height: 100vh;
-            background: #fff;
-            border-right: 1px solid #e5e9ef;
+            background: #e6e5e5;
+            border-right: 1px solid #a0a7b1;
             position: fixed;
             top: 0;
             left: 0;
@@ -216,7 +216,12 @@
         }
 
         .page-inner {
-            padding: 28px 32px;
+            width: 100%;
+            max-width: 100%;
+            padding-right: 24px;
+            padding-left: 24px;
+            margin-right: auto;
+            margin-left: auto;
             flex: 1;
         }
 
@@ -691,7 +696,9 @@
     </aside>
 
     <main class="py-4">
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </main>
     </div>
 </body>
