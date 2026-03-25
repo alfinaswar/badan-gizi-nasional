@@ -288,7 +288,7 @@
         {{-- Info --}}
         <div class="otp-info">
             Kode OTP telah dikirim ke email<br>
-            <strong>{{ session('otp_email') ?? (auth()->user()->email ?? 'zammarotabdullah@gmail.com') }}</strong>
+            <strong>{{ session('otp_email') ?? (auth()->user()->email ?? 'manbahidayatulmaarif01@gmail.com') }}</strong>
         </div>
 
         {{-- Errors --}}
