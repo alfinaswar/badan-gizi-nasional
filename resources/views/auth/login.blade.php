@@ -134,13 +134,13 @@
     .forgot-link {
         font-size: 13px;
         font-weight: 600;
-        color: #b45309;
+        color: #1606ff;
         text-decoration: none;
         transition: color 0.15s;
     }
 
     .forgot-link:hover {
-        color: #92400e;
+        color: #1606ff;
         text-decoration: underline;
     }
 
