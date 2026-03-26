@@ -295,7 +295,7 @@
     }
 
     .register-link:hover {
-        color: #b45309;
+        color: #1a2a4a;
         text-decoration: underline;
     }
 
