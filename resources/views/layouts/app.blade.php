@@ -117,7 +117,7 @@
             position: absolute;
             top: 2px;
             right: 2px;
-            background: #ef4444;
+            background: #f10000;
             color: #fff;
             font-size: 9px;
             font-weight: 700;
@@ -760,7 +760,7 @@
         <div class="topbar-actions">
             <button class="topbar-icon-btn" title="Notifikasi" id="openNotifModal" onclick="openNotifModal()">
                 <i class="bi bi-info-circle"></i>
-                <span class="badge-notif"></span>
+                <span class=""></span>
             </button>
             <div class="notif-dropdown-wrapper" style="position:relative;">
                 <button class="topbar-icon-btn" id="notifDropdownBtn" title="Notifikasi"
