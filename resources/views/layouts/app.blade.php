@@ -680,31 +680,32 @@
                     <!-- Notif 1 -->
                     <div
                         style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
-                        <div style="font-weight:700; font-size:15px; color:#232127;">Pengajuan Ditolak</div>
-                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
-                            Pengajuan telah ditolak oleh JUNFIRIO CHEISAR BERLIANTO.
+                        <div style="font-weight:800; font-size:15px; color:#232127;">Verifikasi Persiapan</div>
+                        <div style="font-size:13px; color:#363a49; margin-top:2px;">
+                            Pengajuan SPPG KAB. BOGOR - BOJONG GEDE<br>
+                            telah memasuki tahap Verifikasi Persiapan.
                         </div>
-                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">4 bulan yang lalu</div>
+                        <div style="font-size:13px; color:#899; margin-top:6px;">1 bulan yang lalu</div>
                     </div>
-                    <!-- Notif 2 -->
                     <div
                         style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
-                        <div style="font-weight:700; font-size:15px; color:#232127;">Penunjukan KA SPPG</div>
-                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
-                            Pengajuan SPPG KAB. BOGOR - BOJONG GEDE telah dilakukan penunjukan KA SPPG oleh Zammarot
-                            Abdullah Nurjaman.
+                        <div style="font-weight:800; font-size:15px; color:#232127;">Pengajuan Verifikasi Data Mitra
                         </div>
-                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">5 bulan yang lalu</div>
+                        <div style="font-size:13px; color:#363a49; margin-top:2px;">
+                            Kami menerima pengajuan verifikasi data mitra dari Anda. Tim kami akan melakukan<br>
+                            verifikasi data mitra yang Anda ajukan.
+                        </div>
+                        <div style="font-size:13px; color:#899; margin-top:6px;">1 bulan yang lalu</div>
                     </div>
-                    <!-- Notif 3 -->
                     <div
                         style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
-                        <div style="font-weight:700; font-size:15px; color:#232127;">Penentuan Kelayakan</div>
-                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
-                            Selamat, survei lapangan telah selesai dilakukan, dan saat ini Calon Lokasi SPPG yang Anda
-                            ajukan memasuki tahap Penentuan Kelayakan
+                        <div style="font-weight:800; font-size:15px; color:#232127;">Pengajuan Verifikasi Data Mitra
                         </div>
-                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">5 bulan yang lalu</div>
+                        <div style="font-size:13px; color:#363a49; margin-top:2px;">
+                            Kami menerima pengajuan verifikasi data mitra dari Anda. Tim kami akan melakukan<br>
+                            verifikasi data mitra yang Anda ajukan.
+                        </div>
+                        <div style="font-size:13px; color:#899; margin-top:6px;">1 bulan yang lalu</div>
                     </div>
                 </div>
                 <div class="modal-footer"
