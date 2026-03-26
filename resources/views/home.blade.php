@@ -52,17 +52,17 @@
 
             {{-- Tabs --}}
             <div class="nav-tabs-custom" role="tablist">
-                <button class="nav-link active" onclick="switchTab(this,'umum')">Umum</button>
-                <button class="nav-link" onclick="switchTab(this,'legal')">Legal</button>
-                <button class="nav-link" onclick="switchTab(this,'keuangan')">Keuangan</button>
-                <button class="nav-link" onclick="switchTab(this,'calon-sppg')">Calon SPPG <span
-                        class="tab-badge">1</span></button>
-                <button class="nav-link" onclick="switchTab(this,'calon-sppg-mitra')">Calon SPPG Mitra <span
-                        class="tab-badge">0</span></button>
-                <button class="nav-link" onclick="switchTab(this,'perwakilan')">Perwakilan Yayasan <span
-                        class="tab-badge">1</span></button>
-                <button class="nav-link" onclick="switchTab(this,'riwayat')">Riwayat Verifikasi Email <span
-                        class="tab-badge">0</span></button>
+                <button class="nav-link active" onclick="switchTab(this,'umum')"><strong>Umum</strong></button>
+                <button class="nav-link" onclick="switchTab(this,'legal')"><strong>Legal</strong></button>
+                <button class="nav-link" onclick="switchTab(this,'keuangan')"><strong>Keuangan</strong></button>
+                <button class="nav-link" onclick="switchTab(this,'calon-sppg')"><strong>Calon SPPG <span
+                            class="tab-badge">1</span></strong></button>
+                <button class="nav-link" onclick="switchTab(this,'calon-sppg-mitra')"><strong>Calon SPPG Mitra <span
+                            class="tab-badge">0</span></strong></button>
+                <button class="nav-link" onclick="switchTab(this,'perwakilan')"><strong>Perwakilan Yayasan <span
+                            class="tab-badge">1</span></strong></button>
+                <button class="nav-link" onclick="switchTab(this,'riwayat')"><strong>Riwayat Verifikasi Email <span
+                            class="tab-badge">0</span></strong></button>
             </div>
 
             {{-- Tab: Umum --}}

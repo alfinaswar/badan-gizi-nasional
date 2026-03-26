@@ -674,12 +674,171 @@
         </div>
         <div class="topbar-actions">
             <button class="topbar-icon-btn" title="Info"><i class="bi bi-info-circle"></i></button>
-            <button class="topbar-icon-btn" title="Notifikasi">
-                <i class="bi bi-bell"></i>
-                <span class="badge-notif">17</span>
-            </button>
-            <button class="avatar-btn" title="Pengaturan"><i class="bi bi-gear-fill"></i></button>
+            <div class="notif-dropdown-wrapper" style="position:relative;">
+                <button class="topbar-icon-btn" id="notifDropdownBtn" title="Notifikasi"
+                    onclick="toggleNotifDropdown(event)">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge-notif">3</span>
+                </button>
+                <div id="notifDropdown" class="notif-dropdown-menu"
+                    style="display:none; position:absolute; right:0; top:42px; width:360px; max-width:94vw; background:#fff; box-shadow:0 4px 24px rgba(60,72,88,.13); border-radius:12px; z-index:2000;">
+                    <div style="max-height:350px; overflow-y:auto; padding:0 0;">
+                        <div
+                            style="padding:16px 20px 12px 18px; border-bottom:1px solid #f1f1f5; display:flex; align-items:center;">
+                            <span style="font-weight:700; font-size:16px; color:#1a2a4a; flex:1;">Notifikasi</span>
+                            <button onclick="closeNotifDropdown(event)"
+                                style="background:transparent; border:none; font-size:15px; color:#aaa; cursor:pointer;"
+                                aria-label="Tutup">&times;</button>
+                        </div>
+
+                        <!-- NOTIF ITEM 1 -->
+                        <div
+                            style="display:flex; padding:16px 20px 12px 18px; border-bottom:1px solid #f5f5f5; align-items:flex-start; gap:8px;">
+                            <span style="margin-top:3.5px; color:#1773ea;"><i class="bi bi-info-circle"></i></span>
+                            <div style="flex:1;">
+                                <div style="font-weight:800; font-size:15px; color:#232127;">Pengajuan Verifikasi Data
+                                    Mitra</div>
+                                <div style="font-size:13px; color:#899;">8 bulan yang lalu</div>
+                                <div style="font-size:14px; color:#363a49; margin-top:2px;">
+                                    Kami menerima pengajuan verifikasi data mitra dari Anda. Tim kami akan melakukan
+                                    verifikasi data mitra yang Anda ajukan.
+                                </div>
+                            </div>
+                            <button onclick="removeNotif(this)"
+                                style="margin-left:8px; background:transparent; border:none; font-size:16px; color:#b6b6bd; cursor:pointer; padding:0;"
+                                title="Hapus notifikasi" aria-label="Tutup">&times;</button>
+                        </div>
+                        <!-- NOTIF ITEM 2 (DUPLICATE) -->
+                        <div
+                            style="display:flex; padding:16px 20px 12px 18px; border-bottom:1px solid #f5f5f5; align-items:flex-start; gap:8px;">
+                            <span style="margin-top:3.5px; color:#1773ea;"><i class="bi bi-info-circle"></i></span>
+                            <div style="flex:1;">
+                                <div style="font-weight:800; font-size:15px; color:#232127;">Pengajuan Verifikasi Data
+                                    Mitra</div>
+                                <div style="font-size:13px; color:#899;">8 bulan yang lalu</div>
+                                <div style="font-size:14px; color:#363a49; margin-top:2px;">
+                                    Kami menerima pengajuan verifikasi data mitra dari Anda. Tim kami akan melakukan
+                                    verifikasi data mitra yang Anda ajukan.
+                                </div>
+                            </div>
+                            <button onclick="removeNotif(this)"
+                                style="margin-left:8px; background:transparent; border:none; font-size:16px; color:#b6b6bd; cursor:pointer; padding:0;"
+                                title="Hapus notifikasi" aria-label="Tutup">&times;</button>
+                        </div>
+                        <div
+                            style="display:flex; padding:16px 20px 12px 18px; border-bottom:1px solid #f5f5f5; align-items:flex-start; gap:8px;">
+                            <span style="margin-top:3.5px; color:#1773ea;"><i class="bi bi-info-circle"></i></span>
+                            <div style="flex:1;">
+                                <div style="font-weight:800; font-size:15px; color:#232127;">Verifikasi Persiapan</div>
+                                <div style="font-size:13px; color:#899;">1 bulan yang lalu</div>
+                                <div style="font-size:14px; color:#363a49; margin-top:2px;">
+                                    Pengajuan SPPG KAB. BOGOR - BOJONG GEDE<br>
+                                    telah memasuki tahap Verifikasi Persiapan.
+                                </div>
+                            </div>
+                            <button onclick="removeNotif(this)"
+                                style="margin-left:8px; background:transparent; border:none; font-size:16px; color:#b6b6bd; cursor:pointer; padding:0;"
+                                title="Hapus notifikasi" aria-label="Tutup">&times;</button>
+                        </div>
+                        <!-- END NOTIF ITEM -->
+                        <!-- Tambah notifikasi lain di sini jika perlu -->
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown" style="position: relative;">
+                <button class="avatar-btn" id="profileDropdownBtn" onclick="toggleProfileDropdown(event)"
+                    title="Pengaturan" style="border:none; background:transparent; padding:0;">
+                    <img src="{{ asset('icon/BGN_LOGO.png') }}" alt="Profile"
+                        style="width:38px; border-radius:50%; border:2px solid #63d39e; background:white;">
+                </button>
+                <div id="profileDropdown"
+                    style="display:none; z-index:1500; position:absolute; right:0; top:120%; min-width:212px; background:#fff; border-radius:14px; box-shadow:0 3px 32px rgba(0,0,0,0.10); padding:0; overflow:hidden;">
+                    <a href="{{ route('profile') }}"
+                        style="padding:18px 20px 10px 20px; border-bottom:1px solid #f3f4f8; display:flex;align-items:center;gap:10px; text-decoration:none; color:inherit;">
+                        <i class="bi bi-person" style="font-size: 20px;color:#616067"></i>
+                        <span style="font-weight:500;">Profil</span>
+                    </a>
+                    <button type="button"
+                        style="width:100%; padding:0; border:none; background:none; text-align:left; margin:0; cursor:not-allowed; color:#1a2a4a; font-weight:600; font-size:15px; display:flex; gap:10px; align-items:center; padding:13px 20px 13px 20px; opacity:.72;">
+                        <i class="bi bi-book" style="font-size:18px;"></i>
+                        <span>Buku Panduan</span>
+                    </button>
+                    <button type="button"
+                        style="width:100%; padding:0; border:none; background:none; text-align:left; margin:0; cursor:not-allowed; color:#ed3636; font-weight:600; font-size:15px; display:flex; gap:10px; align-items:center; padding:13px 20px 13px 20px;">
+                        <i class="bi bi-lock" style="font-size:18px;"></i>
+                        <span>Pengaturan 2FA</span>
+                    </button>
+                    <form action="{{ route('logout') }}" method="POST" style="margin:0;">
+                        @csrf
+                        <button type="submit"
+                            style="width:100%; padding:0; border:none; background:none; text-align:left; margin:0; color:#353558; font-weight:500; font-size:15px; display:flex; gap:10px; align-items:center; padding:13px 20px 13px 20px;">
+                            <i class="bi bi-box-arrow-left" style="font-size:18px;"></i>
+                            <span>Keluar</span>
+                        </button>
+                    </form>
+                </div>
+                <script>
+                    function toggleProfileDropdown(event) {
+                        event.stopPropagation();
+                        let dropdown = document.getElementById('profileDropdown');
+                        if (dropdown.style.display === "none" || !dropdown.style.display) {
+                            dropdown.style.display = "block";
+                            setTimeout(function() {
+                                document.addEventListener('click', clickAwayProfileDropdown);
+                            }, 10);
+                        } else {
+                            dropdown.style.display = "none";
+                            document.removeEventListener('click', clickAwayProfileDropdown);
+                        }
+                    }
+
+                    function clickAwayProfileDropdown(e) {
+                        let dropdown = document.getElementById('profileDropdown');
+                        let btn = document.getElementById('profileDropdownBtn');
+                        if (!dropdown.contains(e.target) && e.target !== btn) {
+                            dropdown.style.display = "none";
+                            document.removeEventListener('click', clickAwayProfileDropdown);
+                        }
+                    }
+                </script>
+            </div>
         </div>
+        <script>
+            function toggleNotifDropdown(event) {
+                event.stopPropagation();
+                let dropdown = document.getElementById('notifDropdown');
+                if (dropdown.style.display === "none" || !dropdown.style.display) {
+                    dropdown.style.display = "block";
+                    setTimeout(function() {
+                        document.addEventListener('click', clickAwayNotifDropdown);
+                    }, 10);
+                } else {
+                    dropdown.style.display = "none";
+                    document.removeEventListener('click', clickAwayNotifDropdown);
+                }
+            }
+
+            function clickAwayNotifDropdown(e) {
+                let dropdown = document.getElementById('notifDropdown');
+                let btn = document.getElementById('notifDropdownBtn');
+                if (!dropdown.contains(e.target) && e.target !== btn) {
+                    dropdown.style.display = "none";
+                    document.removeEventListener('click', clickAwayNotifDropdown);
+                }
+            }
+
+            function closeNotifDropdown(event) {
+                event.stopPropagation();
+                let dropdown = document.getElementById('notifDropdown');
+                dropdown.style.display = 'none';
+                document.removeEventListener('click', clickAwayNotifDropdown);
+            }
+
+            function removeNotif(btn) {
+                var notifItem = btn.closest("div[style^='display:flex']");
+                if (notifItem) notifItem.style.display = "none";
+            }
+        </script>
     </nav>
 
     {{-- OVERLAY --}}

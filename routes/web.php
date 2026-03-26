@@ -25,6 +25,9 @@ Route::get('/pengajuan-lokasi-sppg', [HomeController::class, 'pengajuanLokasi'])
 Route::get('/lupa-password', function () {
     return view('lupa-pass');
 })->name('password.request');
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
 Route::get('/pengajuan-lokasi-sppg/detail', [HomeController::class, 'pengajuanLokasiDetail'])->name('otp.pl-detail');
 Route::get('/mitra', [HomeController::class, 'mitra'])->name('otp.mitra');
 Route::get('/otp', [OtpController::class, 'form'])->name('otp.form');
