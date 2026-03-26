@@ -24,13 +24,13 @@
                     <div class="profile-card-meta">
                         <span>{{ $mitra->email ?? 'manbahidayatulmaarif01@gmail.com' }}</span>
                         <span class="sep">|</span>
-                        <span>{{ $mitra->telepon ?? '082112556664' }}</span>
+                        <span>{{ $mitra->telepon ?? '08998454419' }}</span>
                         <span class="sep">|</span>
                         <span class="badge-verified">Terverifikasi</span>
                     </div>
                 </div>
                 <div class="profile-card-id">
-                    <span>ID Mitra : {{ $mitra->id_mitra ?? 'B2GCL2GS' }}
+                    <span>ID Mitra : {{ $mitra->id_mitra ?? 'GTRQOV' }}
                         <i class="bi bi-copy ms-1" style="cursor:pointer;font-size:13px;" title="Salin ID"></i>
                     </span>
                     <strong>{{ $mitra->nomor ?? '1306250071621' }}</strong>
@@ -41,9 +41,9 @@
             <div class="info-alert" id="infoAlert">
                 <i class="bi bi-info-circle-fill alert-icon"></i>
                 <div>
-                    <strong>Terverifikasi</strong> = Mitra telah <strong>lulus proses verifikasi data legal</strong>
-                    dan <strong>dapat mengajukan SPPG</strong>. Data legal yang telah diverifikasi
-                    <strong>tidak dapat diubah</strong> oleh Mitra.
+                    <strong>Terverifikasi</strong> = Mitra telah lulus proses verifikasi data legal dan dapat mengajukan
+                    <strong>SPPG</strong>. Data legal yang telah diverifikasi <strong>tidak dapat diubah</strong> oleh
+                    Mitra.
                 </div>
                 <button class="close-btn" onclick="document.getElementById('infoAlert').style.display='none'">
                     <i class="bi bi-x"></i>

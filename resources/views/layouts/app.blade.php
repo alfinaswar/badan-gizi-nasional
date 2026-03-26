@@ -314,9 +314,9 @@
         }
 
         .badge-verified {
-            background: transparent;
+            background: rgba(187, 189, 188, 0.5);
             border: 1.5px solid #4ade80;
-            color: #4ade80;
+            color: #ffffff;
             font-size: 11.5px;
             font-weight: 600;
             padding: 2px 10px;
