@@ -189,7 +189,61 @@
             font-size: 19px;
         }
     }
+
+    .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 14px 16px;
+        min-width: 300px;
+        display: none;
+        z-index: 9999;
+        animation: slideIn 0.3s ease;
+    }
+
+    .toast-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .toast-icon {
+        color: #22c55e;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .toast-close {
+        margin-left: auto;
+        cursor: pointer;
+        font-weight: bold;
+        color: #999;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 </style>
+<div id="toast" class="toast">
+    <div class="toast-content">
+        <span class="toast-icon">✔</span>
+        <span id="toast-text">
+            <!-- Akan diisi via JS -->
+        </span>
+        <span class="toast-close" onclick="hideToast()">×</span>
+    </div>
+</div>
 
 <div class="forgot-wrapper">
     <div class="forgot-card">
@@ -222,7 +276,8 @@
         @endif
 
         {{-- Form --}}
-        <form method="POST" action="#">
+        <form method="POST" action="#" onsubmit="event.preventDefault(); handleForgotPasswordSubmit();">
+
             @csrf
 
             <div class="form-group">
@@ -242,3 +297,29 @@
 
     </div>
 </div>
+
+
+<script>
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const text = document.getElementById('toast-text');
+
+        text.innerText = message;
+        toast.style.display = 'block';
+
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 4000);
+    }
+
+    function hideToast() {
+        document.getElementById('toast').style.display = 'none';
+    }
+
+    function handleForgotPasswordSubmit() {
+        const emailInput = document.getElementById('email');
+        const email = emailInput.value || '';
+        const toastMessage = `Link Reset Password Telah Dikirim ke Email ${email}`;
+        showToast(toastMessage);
+    }
+</script>

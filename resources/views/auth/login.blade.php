@@ -422,9 +422,30 @@
         </form>
 
         {{-- Register --}}
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="register-link">Buat Akun Baru</a>
-        @endif
+        <a href="#" class="register-link" onclick="openCloseRegistrationModal(event)">Buat Akun Baru</a>
+
+        <!-- Modal for Registration Closure -->
+        <div id="closeRegistrationModal"
+            style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background:rgba(0,0,0,0.38); align-items: flex-start; justify-content: center;">
+            <div
+                style="background:#fff; max-width:350px; width:90%; border-radius:18px; box-shadow:0 3px 32px rgba(0,0,0,0.12); text-align:center; padding:34px 24px 24px 24px; font-family:'Plus Jakarta Sans',sans-serif; position:relative; margin:auto; margin-top:48px; top:0; transform:none; display:flex; flex-direction:column; align-items:center;">
+                <img src="{{ asset('icon/BGN_LOGO.png') }}" alt="Logo BGN" style="width:100px; margin-bottom:20px;"
+                    draggable="false">
+                <div style="font-size:21px;font-weight:700; color:#1a2a4a; line-height:1.3; margin-bottom:18px;">
+                    Penutupan<br>Pendaftaran Mitra<br>BGN
+                </div>
+                <div style="font-size:14px; color:#444; margin-bottom:24px; line-height:1.6;">
+                    Pendaftaran Mitra mitra Satuan Pelayanan Pemenuhan Gizi (SPPG) untuk Program Makan Bergizi Gratis
+                    (MBG) telah ditutup guna mengendalikan jumlah dan sebaran SPPG, agar layanan gizi dapat tersebar
+                    lebih merata.<br><br>
+                    Kami mohon maaf atas ketidaknyamanan yang mungkin timbul dan berterima kasih atas pengertian serta
+                    kerja samanya.
+                </div>
+                <button onclick="closeCloseRegistrationModal()"
+                    style="width:100%; padding:10px 0; border-radius:8px; background:#1a2a4a; border:none; color:#fff; font-weight:600; font-size:15px; margin-top:12px; cursor:pointer;">Kembali</button>
+            </div>
+        </div>
+
 
     </div>
 </div>
@@ -432,7 +453,16 @@
 <div class="footer-copyright">
     © {{ date('Y') }} Badan Gizi Nasional (BGN). All Rights Reserved.
 </div>
+<script>
+    function openCloseRegistrationModal(event) {
+        event.preventDefault();
+        document.getElementById('closeRegistrationModal').style.display = 'flex';
+    }
 
+    function closeCloseRegistrationModal() {
+        document.getElementById('closeRegistrationModal').style.display = 'none';
+    }
+</script>
 <script>
     function togglePassword() {
         const input = document.getElementById('password');
@@ -452,4 +482,10 @@
             `;
         }
     }
+</script>
+<script>
+    $(document).ready(function() {
+        openCloseRegistrationModal()
+        togglePassword()
+    });
 </script>
