@@ -73,8 +73,8 @@
         }
 
         .topbar-brand img {
-            width: 134px;
-            height: 34px;
+            width: 154px;
+            height: 44px;
             object-fit: contain;
         }
 
@@ -165,8 +165,8 @@
         .sidebar {
             width: 240px;
             height: 100vh;
-            background: #e6e5e5;
-            border-right: 1px solid #a0a7b1;
+            background: #ffffff;
+            border-right: 1px solid #ffffff;
             position: fixed;
             top: 0;
             left: 0;
