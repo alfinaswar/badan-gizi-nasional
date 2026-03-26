@@ -665,15 +665,102 @@
 
     {{-- TOPBAR --}}
     <nav class="topbar">
-        <button class="topbar-hamburger" id="sidebarToggle" aria-label="Toggle menu">
-            <i class="bi bi-list"></i>
-        </button>
+
+
+        <!-- Notifikasi Modal -->
+        <div id="notifModal" class="modal" tabindex="-1"
+            style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(34,34,34,0.22); overflow-y:auto;">
+            <div class="modal-dialog"
+                style="max-width:420px; margin:48px auto; background:#fff; border-radius:14px; box-shadow:0 6px 24px rgba(45,60,90,0.13); padding:0; min-height:100px; display:flex; flex-direction:column; max-height:calc(100vh - 96px);">
+                <div class="modal-header"
+                    style="padding:18px 22px 12px 22px; border-bottom:1px solid #ececec; flex-shrink:0;">
+                    <span style="font-weight:700; font-size:18px; color:#232127; flex:1;">Notifikasi</span>
+                </div>
+                <div class="modal-body" style="overflow-y:auto; padding:14px 18px 0 18px; flex:1; min-height:0;">
+                    <!-- Notif 1 -->
+                    <div
+                        style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
+                        <div style="font-weight:700; font-size:15px; color:#232127;">Pengajuan Ditolak</div>
+                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
+                            Pengajuan telah ditolak oleh JUNFIRIO CHEISAR BERLIANTO.
+                        </div>
+                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">4 bulan yang lalu</div>
+                    </div>
+                    <!-- Notif 2 -->
+                    <div
+                        style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
+                        <div style="font-weight:700; font-size:15px; color:#232127;">Penunjukan KA SPPG</div>
+                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
+                            Pengajuan SPPG KAB. BOGOR - BOJONG GEDE telah dilakukan penunjukan KA SPPG oleh Zammarot
+                            Abdullah Nurjaman.
+                        </div>
+                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">5 bulan yang lalu</div>
+                    </div>
+                    <!-- Notif 3 -->
+                    <div
+                        style="background:#fff; border-radius:8px; padding:14px 15px 8px 15px; margin-bottom:13px; border:1px solid #e4e4e7;">
+                        <div style="font-weight:700; font-size:15px; color:#232127;">Penentuan Kelayakan</div>
+                        <div style="font-size:13.2px; color:#424457; margin-top:2px;">
+                            Selamat, survei lapangan telah selesai dilakukan, dan saat ini Calon Lokasi SPPG yang Anda
+                            ajukan memasuki tahap Penentuan Kelayakan
+                        </div>
+                        <div style="font-size:12.2px; color:#a5a6ab; margin-top:6px;">5 bulan yang lalu</div>
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    style="padding:16px 22px 18px 22px; border-top:1px solid #ececec; background:transparent; display:flex; justify-content:center; flex-shrink:0;">
+                    <button type="button" onclick="closeNotifModal()"
+                        style="
+                        background: #e0be82;
+                        color: #fff;
+                        border: none;
+                        border-radius: 8px;
+                        padding: 10px 0;
+                        font-weight: 700;
+                        font-size: 15px;
+                        width: 100%;
+                        margin-top: 2px;
+                        box-shadow: none;
+                        cursor: pointer;
+                        letter-spacing:0.01em;
+                        transition: background 0.18s;
+                    ">Tutup</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openNotifModal() {
+                document.getElementById('notifModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeNotifModal() {
+                document.getElementById('notifModal').style.display = 'none';
+                document.body.style.overflow = '';
+            }
+            // Tutup modal bila klik area luar modal-dialog
+            document.addEventListener('mousedown', function(e) {
+                var modal = document.getElementById('notifModal');
+                var dialog = modal && modal.querySelector('.modal-dialog');
+                if (modal && dialog && modal.style.display !== 'none') {
+                    if (!dialog.contains(e.target)) closeNotifModal();
+                }
+            });
+            // Tutup modal dengan tombol Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape") closeNotifModal();
+            });
+        </script>
+
         <div class="topbar-brand">
             <img src="{{ asset('icon/BGN_LOGO.png') }}" alt="BGN" onerror="this.style.display='none'">
 
         </div>
         <div class="topbar-actions">
-            <button class="topbar-icon-btn" title="Info"><i class="bi bi-info-circle"></i></button>
+            <button class="topbar-icon-btn" title="Notifikasi" id="openNotifModal" onclick="openNotifModal()">
+                <i class="bi bi-info-circle"></i>
+                <span class="badge-notif">3</span>
+            </button>
             <div class="notif-dropdown-wrapper" style="position:relative;">
                 <button class="topbar-icon-btn" id="notifDropdownBtn" title="Notifikasi"
                     onclick="toggleNotifDropdown(event)">
