@@ -666,7 +666,7 @@
             border: 1px solid #e5e9ef;
             border-radius: 10px;
             padding: 6px 10px;
-            width: fit-content;
+            width: 1000px;
             margin: 0 auto 24px auto;
             flex-wrap: wrap;
             gap: 2px;
@@ -1257,7 +1257,7 @@
                         </div>
                         <span class="sppg-sep">•</span>
                         <span>yayasan terkait :
-                            {{ Str::lower(Str::limit($sppg->yayasan ?? 'yayasan pondok pesantren manba hidayatul maarif')) }}</span>
+                            {{ Str::lower(Str::limit($sppg->yayasan ?? 'Yayasan Pondok Pesantren Manba Hidayatul Maarif')) }}</span>
                     </div>
                 </div>
                 <a href="" class="btn-process">Proses Persiapan</a>
@@ -1271,21 +1271,21 @@
                 </div>
                 <div class="profile-body">
                     <div class="profile-name">
-                        {{ $yayasan->nama ?? 'Yayasan Permata Emas Empat Lima' }}
+                        {{ Str::title($yayasan->nama ?? 'Yayasan Pondok Pesantren Manba Hidayatul Maarif') }}
                         <i class="bi bi-patch-check-fill verified-icon"></i>
                     </div>
                     <div class="profile-meta">
                         <div class="mid-id">
-                            ID Mitra : {{ $yayasan->id_mitra ?? 'B2GCL2GS' }}
+                            ID Mitra : {{ $yayasan->id_mitra ?? 'GTRQOV ' }}
                             <i class="bi bi-copy" title="Salin ID"
-                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? 'B2GCL2GS' }}', this)"></i>
+                                onclick="copyToClipboard('{{ $yayasan->id_mitra ?? '1306250071621' }}', this)"></i>
                         </div>
                         <span class="sep">•</span>
-                        <span>NPWP: {{ $yayasan->npwp ?? '1000000002936139' }}</span>
+                        <span>NPWP: {{ $yayasan->npwp ?? '92.518.776.7-403.000' }}</span>
                         <span class="sep">•</span>
-                        <span>Nomor Ponsel: {{ $yayasan->nomor_ponsel ?? '081293825578' }}</span>
+                        <span>Nomor Ponsel: {{ $yayasan->nomor_ponsel ?? '08998454419' }}</span>
                         <span class="sep">•</span>
-                        <span>Email: {{ $yayasan->email ?? 'permataemasempatlima@gmail.com' }}</span>
+                        <span>Email: {{ $yayasan->email ?? 'manbahidayatulmaarif01@gmail.com' }}</span>
                     </div>
                 </div>
                 <button class="profile-ext-btn" title="Buka di tab baru">
@@ -1325,37 +1325,39 @@
 
                         <div class="field-item">
                             <div class="field-label">Nama yayasan</div>
-                            <div class="field-value">{{ $yayasan->nama ?? 'Yayasan Permata Emas Empat Lima' }}</div>
+                            <div class="field-value">
+                                {{ $yayasan->nama ?? 'Yayasan Pondok Pesantren Manba Hidayatul Maarif' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">Nama ketua yayasan</div>
-                            <div class="field-value">{{ $yayasan->nama_ketua ?? 'M.Diaz Darmawan' }}</div>
+                            <div class="field-value">{{ $yayasan->nama_ketua ?? 'Ferdy Husin' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">NPWP Yayasan</div>
-                            <div class="field-value">{{ $yayasan->npwp ?? '1000000002936139' }}</div>
+                            <div class="field-value">{{ $yayasan->npwp ?? '92.518.776.7-403.000' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">Email</div>
-                            <div class="field-value">{{ $yayasan->email ?? 'permataemasempatlima@gmail.com' }}</div>
+                            <div class="field-value">{{ $yayasan->email ?? 'manbahidayatulmaarif01@gmail.com' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">Nomor Ponsel</div>
-                            <div class="field-value">{{ $yayasan->nomor_ponsel ?? '081293825578' }}</div>
+                            <div class="field-value">{{ $yayasan->nomor_ponsel ?? '08998454419' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">Alamat Yayasan</div>
-                            <div class="field-value">{{ $yayasan->alamat ?? 'jalan nusantara gang perkutut no 3' }}</div>
+                            <div class="field-value">
+                                {{ $yayasan->alamat ?? 'Jl Bakti Kp Ceringin Rt 04/08 Desa Ragajaya ' }}</div>
                         </div>
 
                         <div class="field-item">
                             <div class="field-label">Kode Pos Yayasan</div>
-                            <div class="field-value">{{ $yayasan->kode_pos ?? '35141' }}</div>
+                            <div class="field-value">{{ $yayasan->kode_pos ?? '16920' }}</div>
                         </div>
 
                     </div>
