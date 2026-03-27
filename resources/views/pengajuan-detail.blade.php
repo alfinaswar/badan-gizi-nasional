@@ -481,7 +481,8 @@
         /* ── Info Alert ── */
         .info-alert {
             background: #fff;
-            border: 1.5px solid #bfdbfe;
+            border: 1.5px solid #2b57a8;
+            /* biru: blue-600 Tailwind */
             border-radius: 10px;
             padding: 14px 18px;
             font-size: 13.5px;
@@ -1266,13 +1267,12 @@
             {{-- Profile Card --}}
             <div class="profile-card">
                 <div class="profile-avatar">
-                    <img src="{{ $yayasan->logo ?? '' }}" alt="Logo"
-                        onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-building\'></i>'">
+                    <img src="{{ asset('icon/logo-yayasan.jpeg') }}" alt="Logo">
                 </div>
                 <div class="profile-body">
                     <div class="profile-name">
                         {{ Str::title($yayasan->nama ?? 'Yayasan Pondok Pesantren Manba Hidayatul Maarif') }}
-                        <i class="bi bi-patch-check-fill verified-icon"></i>
+                        <i class="bi bi-patch-check-fill verified-icon" style="color: #fff;" title="Terverifikasi"></i>
                     </div>
                     <div class="profile-meta">
                         <div class="mid-id">
@@ -1295,7 +1295,13 @@
 
             {{-- Info Alert --}}
             <div class="info-alert" id="infoAlert">
-                <i class="bi bi-info-circle-fill alert-icon"></i>
+                <svg class="h-8 w-8 text-[#1F1F1F]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
+                    style="width: 36px; height: 36px;">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z">
+                    </path>
+                </svg>
                 <div>
                     <strong>Proses Persiapan = Calon mitra</strong> melakukan pelaporan kesiapan secara berkala dan
                     melengkapi
