@@ -325,7 +325,7 @@
 
         .profile-card-id {
             text-align: right;
-            color: rgba(255, 255, 255, 0.75);
+            color: #fff;
             font-size: 13px;
             white-space: nowrap;
             flex-shrink: 0;
@@ -340,8 +340,8 @@
 
         /* ─── INFO ALERT ─────────────────────────────────── */
         .info-alert {
-            background: #fff;
-            border: 1.5px solid #bfdbfe;
+            background: rgb(245 249 255);
+            border: 1.5px solid #0968f6;
             border-radius: 10px;
             padding: 12px 16px;
             font-size: 13.5px;
@@ -353,7 +353,7 @@
         }
 
         .info-alert .alert-icon {
-            color: #3b82f6;
+            color: #0968f6;
             font-size: 18px;
             margin-top: 1px;
             flex-shrink: 0;
@@ -841,7 +841,7 @@
                 </button>
                 <div id="profileDropdown"
                     style="display:none; z-index:1500; position:absolute; right:0; top:120%; min-width:212px; background:#fff; border-radius:14px; box-shadow:0 3px 32px rgba(0,0,0,0.10); padding:0; overflow:hidden;">
-                    <a href=""
+                    <a href="{{ route('test.profile') }}"
                         style="padding:18px 20px 10px 20px; border-bottom:1px solid #f3f4f8; display:flex;align-items:center;gap:10px; text-decoration:none; color:inherit;">
                         <i class="bi bi-person" style="font-size: 20px;color:#616067"></i>
                         <span style="font-weight:500;">Profil</span>
@@ -943,9 +943,9 @@
     </aside>
 
     <main class="py-4">
-        {{-- <div class="container"> --}}
-        @yield('content')
-        {{-- </div> --}}
+        <div class="container">
+            @yield('content')
+        </div>
     </main>
     </div>
 </body>

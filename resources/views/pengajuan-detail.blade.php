@@ -272,8 +272,8 @@
 
         .btn-process {
             padding: 10px 22px;
-            background: #fff;
-            color: #0f1f3d;
+            background: #0f1f3d;
+            color: #fff;
             border: 1.5px solid #0f1f3d;
             border-radius: 8px;
             font-size: 14px;
@@ -281,15 +281,8 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             cursor: pointer;
             white-space: nowrap;
-            transition: background 0.15s, color 0.15s, transform 0.12s;
             text-decoration: none;
             display: inline-block;
-        }
-
-        .btn-process:hover {
-            background: #0f1f3d;
-            color: #fff;
-            transform: translateY(-1px);
         }
 
         /* Custom Leaflet popup */
@@ -1256,7 +1249,7 @@
             {{-- SPPG Info Card --}}
             <div class="sppg-info-card">
                 <div class="sppg-info-left">
-                    <h2>{{ $sppg->nama ?? 'SPPG BOJONG GEDE' }}</h2>
+                    <h2>{{ $sppg->nama ?? 'SPPG BOJONG GEDE, RAGAJAYA #001' }}</h2>
                     <div class="sppg-info-meta">
                         <div class="sppg-id">
                             ID SPPG : {{ $sppg->id_sppg ?? 'B2GCL2GS' }}

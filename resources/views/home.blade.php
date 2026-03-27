@@ -21,17 +21,29 @@
                 </div>
                 <div class="profile-card-info">
                     <h2>{{ $mitra->nama ?? 'YAYASAN PONDOK PESANTREN MANBA HIDAYATUL MAARIF' }}</h2>
-                    <div class="profile-card-meta">
-                        <span>{{ $mitra->email ?? 'manbahidayatulmaarif01@gmail.com' }}</span>
-                        <span class="sep">|</span>
-                        <span>{{ $mitra->telepon ?? '08998454419' }}</span>
-                        <span class="sep">|</span>
+                    <div class="profile-cprofileard-meta">
+                        <span style="color: #fff;">{{ $mitra->email ?? 'manbahidayatulmaarif01@gmail.com' }}</span>
+                        <span class="sep" style="color: #fff;"> | </span>
+                        <span style="color: #fff;">{{ $mitra->telepon ?? '08998454419' }}</span>
+                        <span class="sep" style="color: #fff;"> | </span>
                         <span class="badge-verified">Terverifikasi</span>
                     </div>
                 </div>
                 <div class="profile-card-id">
                     <span>ID Mitra : {{ $mitra->id_mitra ?? 'GTRQOV' }}
-                        <i class="bi bi-copy ms-1" style="cursor:pointer;font-size:13px;" title="Salin ID"></i>
+                        <span onclick="navigator.clipboard.writeText('{{ $mitra->id_mitra ?? 'GTRQOV' }}')" title="Salin ID"
+                            style="cursor:pointer;display:inline-flex;align-items:center;vertical-align:-2px;">
+                            <svg class="ms-1" xmlns="http://www.w3.org/2000/svg"
+                                style="width: 14px; height: 14px; color: #ffffff;" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true" data-slot="icon">
+                                <path fill-rule="evenodd"
+                                    d="M15.988 3.012A2.25 2.25 0 0 1 18 5.25v6.5A2.25 2.25 0 0 1 15.75 14H13.5v-3.379a3 3 0 0 0-.879-2.121l-3.12-3.121a3 3 0 0 0-1.402-.791 2.252 2.252 0 0 1 1.913-1.576A2.25 2.25 0 0 1 12.25 1h1.5a2.25 2.25 0 0 1 2.238 2.012ZM11.5 3.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v.25h-3v-.25Z"
+                                    clip-rule="evenodd"></path>
+                                <path
+                                    d="M3.5 6A1.5 1.5 0 0 0 2 7.5v9A1.5 1.5 0 0 0 3.5 18h7a1.5 1.5 0 0 0 1.5-1.5v-5.879a1.5 1.5 0 0 0-.44-1.06L8.44 6.439A1.5 1.5 0 0 0 7.378 6H3.5Z">
+                                </path>
+                            </svg>
+                        </span>
                     </span>
                     <strong>{{ $mitra->nomor ?? '1306250071621' }}</strong>
                 </div>
@@ -39,7 +51,15 @@
 
             {{-- Info Alert --}}
             <div class="info-alert" id="infoAlert">
-                <i class="bi bi-info-circle-fill alert-icon"></i>
+                <div style="vertical-align: middle; ">
+                    <svg class="h-8 w-8 text-[#1F1F1F]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
+                        style="width: 36px; height: 36px;">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z">
+                        </path>
+                    </svg>
+                </div>
                 <div>
                     <strong>Terverifikasi</strong> = Mitra telah lulus proses verifikasi data legal dan dapat mengajukan
                     <strong>SPPG</strong>. Data legal yang telah diverifikasi <strong>tidak dapat diubah</strong> oleh
@@ -96,7 +116,8 @@
                             <input type="text" class="form-control" value="Ferdy Husin">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" style="font-weight:500;">Email<span class="required">*</span></label>
+                            <label class="form-label" style="font-weight:500;">Email<span
+                                    class="required">*</span></label>
                             <input type="email" class="form-control" value="manbahidayatulmaarif01@gmail.com">
                         </div>
                         <div class="mb-3">
@@ -116,31 +137,33 @@
                                 <option selected>Yayasan</option>
                             </select>
                         </div>
-                        <button type="button"
-                            style="
-    margin-top:8px;
-    background:#f9fafb;
-    color:#9ca3af;
-    border:1.5px solid #e5e7eb;
-    border-radius:10px;
-    padding:9px 20px;
-    font-size:14px;
-    font-weight:400;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                                fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="3.5" />
-                                <line x1="12" y1="8" x2="12" y2="16" />
-                                <line x1="8" y1="12" x2="16" y2="12" />
-                            </svg>
-                            Simpan
-                        </button>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <button type="button"
+                                style="
+        margin-top:8px;
+        background:#f9fafb;
+        color:#9ca3af;
+        border:1.5px solid #e5e7eb;
+        border-radius:10px;
+        padding:9px 20px;
+        font-size:14px;
+        font-weight:400;
+        cursor:pointer;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
+                                    viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="3.5" />
+                                    <line x1="12" y1="8" x2="12" y2="16" />
+                                    <line x1="8" y1="12" x2="16" y2="12" />
+                                </svg>
+                                Simpan
+                            </button>
+                        </div>
                     </form>
 
                     {{-- Form Alamat Mitra --}}
@@ -197,31 +220,33 @@
                             <textarea class="form-control" rows="2">Jl Bakti Kp Ceringin Rt 04/08 Desa Ragajaya </textarea>
                         </div>
 
-                        <button type="button"
-                            style="
-    margin-top:8px;
-    background:#f9fafb;
-    color:#9ca3af;
-    border:1.5px solid #e5e7eb;
-    border-radius:10px;
-    padding:9px 20px;
-    font-size:14px;
-    font-weight:400;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                                fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="3.5" />
-                                <line x1="12" y1="8" x2="12" y2="16" />
-                                <line x1="8" y1="12" x2="16" y2="12" />
-                            </svg>
-                            Simpan
-                        </button>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <button type="button"
+                                style="
+        margin-top:8px;
+        background:#f9fafb;
+        color:#9ca3af;
+        border:1.5px solid #e5e7eb;
+        border-radius:10px;
+        padding:9px 20px;
+        font-size:14px;
+        font-weight:400;
+        cursor:pointer;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
+                                    viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="3.5" />
+                                    <line x1="12" y1="8" x2="12" y2="16" />
+                                    <line x1="8" y1="12" x2="16" y2="12" />
+                                </svg>
+                                Simpan
+                            </button>
+                        </div>
                     </form>
                     {{-- End Form Alamat Mitra --}}
                 </div>
@@ -489,7 +514,7 @@
                             </div>
                         </div>
                         <div style="overflow-x:auto;">
-                            <table style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;">
+                            {{-- <table style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;">
                                 <thead>
                                     <tr style="background:#FAFAFA;">
                                         <th
@@ -518,7 +543,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table> --}}
 
                         </div>
                     </div>
@@ -526,217 +551,348 @@
             </div>
 
             <div id="tab-calon-sppg" class="tab-pane">
-                <div class="section-card">
-                    <div style="margin-bottom: 24px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div class="section-title" style="margin: 0;">Calon Lokasi SPPG</div>
-                            <button
-                                style="background: #193763; color: #fff; border: none; border-radius: 6px; font-size: 14px; padding: 8px 18px; display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                                <i class="bi bi-plus" style="font-size: 16px;"></i> Ajukan Lokasi Baru
-                            </button>
-                        </div>
+                <div class="section-card" style="padding: 20px 20px 8px 20px;">
+                    <!-- HEADER -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <div class="section-title" style="margin: 0;">Calon Lokasi SPPG</div>
+                        <button
+                            style="background: #263882; color: #fff; border: none; border-radius: 6px; font-size: 14px; padding: 8px 18px; display: flex; align-items: center; gap: 6px; cursor: pointer;"
+                            onclick="document.getElementById('confirmationModal').style.display='block';">
+                            <i class="bi bi-plus" style="font-size: 16px; margin-right:4px;"></i> Ajukan Lokasi Baru
+                        </button>
                     </div>
-                    <div style="margin-bottom: 16px;">
-                        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-                            <div>
-                                <label style="font-size: 14px; margin-right: 8px;">Status</label>
-                                <select
-                                    style="padding: 6px 10px; font-size: 14px; border: 1.5px solid #E5E7EB; background: #FAFAFA; border-radius: 5px; outline: none;">
-                                    <option>Semua</option>
-                                    <option>Aktif</option>
-                                    <option>Ditolak</option>
-                                </select>
+                    <!-- FILTER ROW -->
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; margin-bottom: 18px;">
+                        <div style="flex: 1 1 300px; max-width: 340px;">
+                            <label
+                                style="font-size: 13px; font-weight:600; color: #424242; display:block; margin-bottom: 7px;">Filter</label>
+                            <div style="display: flex; gap: 10px;">
+                                <div style="flex: 1;">
+                                    <label
+                                        style="font-size: 13px; color: #393939; margin-bottom: 4px; display:block;">Status</label>
+                                    <select
+                                        style="width: 100%; padding: 6px 10px; font-size: 14px; border: 1.5px solid #E5E7EB; background: #FAFAFA; border-radius: 5px; outline: none;">
+                                        <option>Semua</option>
+                                        <option>Aktif</option>
+                                        <option>Ditolak</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div>
+                        </div>
+                        <div style="display:flex; align-items: flex-end; gap: 14px; min-width: 250px; margin-left: auto;">
+                            <div style="flex:1">
+                                <label for="cari-calon-sppg"
+                                    style="font-size: 13px; color:#434343; margin-bottom: 4px;display:block;"> </label>
+                                <input id="cari-calon-sppg" type="text" class="form-control" placeholder="Cari"
+                                    style="padding:6px 10px;font-size:14px;border:1.5px solid #E5E7EB;background:#FAFAFA;border-radius:5px;width:180px;">
+                            </div>
+                            <div style="text-align:right; min-width:105px;">
                                 <a href="#"
-                                    style="color: #2179D7; font-size: 13px; text-decoration: underline;">Atur ulang
+                                    style="color:#EB5757;font-size:12px;text-decoration:none;font-weight:600;">Atur ulang
                                     filter</a>
                             </div>
-                            <div style="flex: 1 1 160px; max-width: 230px; margin-left: auto;">
-                                <input type="text" class="form-control" placeholder="Cari"
-                                    style="width: 100%; padding: 6px 10px; font-size: 14px; border: 1.5px solid #E5E7EB; background: #FAFAFA; border-radius: 5px;">
-                            </div>
                         </div>
                     </div>
+                    <!-- TABLE -->
                     <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse; font-size: 14px; background: #fff;">
+                        <table
+                            style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;min-width:1200px;">
                             <thead>
-                                <tr style="background: #FAFAFA;">
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                <tr style="background:#FAFAFA;">
+                                    <th
+                                        style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;min-width:85px;">
                                         Status</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">ID
-                                        SPPG</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
-                                        Provinsi</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">ID SPPG
+                                    </th>
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">Provinsi
+                                    </th>
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
                                         Kota/Kabupaten</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
                                         Kecamatan</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
                                         Kelurahan/Desa</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
-                                        Luas Lahan</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
-                                        Luas Bangunan</th>
-                                    <th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
-                                        Kesiapan SPPG</th>
-                                    <th style="padding: 10px 12px; border-bottom: 1px solid #ECECEC;"></th>
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">Luas
+                                        Lahan</th>
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">Luas
+                                        Bangunan</th>
+                                    <th style="padding:10px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">Kesiapan
+                                        SPPG</th>
+                                    <th style="padding:10px 12px;border-bottom:1px solid #ECECEC;"> </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 10px 12px;">
+                                    <td style="padding:10px 12px;">
                                         <span
-                                            style="background: #F3F7FF; color: #4767DA; font-size: 13px; border-radius: 4px; padding: 3px 10px; font-weight: 500;">Aktif</span>
+                                            style="background:#F3F7FF;color:#4767DA;font-size:13px;border-radius:4px;padding:3px 12px;font-weight:500;">
+                                            Proses Persiapan
+                                        </span>
+                                    </td>
+                                    <td style="padding:10px 12px;">B2GCL2GS</td>
+                                    <td style="padding:10px 12px;">JAWA BARAT</td>
+                                    <td style="padding:10px 12px;">KAB. BOGOR</td>
+                                    <td style="padding:10px 12px;">BOJONG GEDE</td>
+                                    <td style="padding:10px 12px;">RAGAJAYA</td>
+                                    <td style="padding:10px 12px;">300 m2</td>
+                                    <td style="padding:10px 12px;">300 m2</td>
+                                    <td style="padding:10px 12px;">-</td>
+                                    <td style="padding:10px 12px; position:relative;">
+                                        <div class="dropdown" style="display:inline-block;position:relative;">
+                                            <button class="dropdown-toggle"
+                                                style="background:#fff;border:1px solid #DFE4EA;border-radius:4px;padding:4px 10px;cursor:pointer;font-size:13px;font-weight:500;color:#526087;min-width:30px;display:inline-flex;align-items:center;gap:4px;">
+                                                <i class="bi bi-list"></i>
+                                            </button>
+                                            <div class="dropdown-menu"
+                                                style="display:none;position:absolute;top:100%;right:0;min-width:165px;background:#fff;box-shadow:0 2px 16px #0002;border-radius:8px;z-index:9;padding:7px 0;">
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Ajukan
+                                                    Proposal</a>
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Upload
+                                                    Dokumen</a>
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Peninjauan
+                                                    Lokasi</a>
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Unduh
+                                                    Proposal</a>
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Penetapan
+                                                    Kesiapan</a>
+                                                <a href="#"
+                                                    style="display:block;padding:7px 18px;color:#263882;text-decoration:none;font-size:12.5px;">Penetapan
+                                                    Status</a>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            // Basic dropdown show/hide
+                                            document.querySelectorAll('.dropdown-toggle').forEach(function(btn) {
+                                                btn.addEventListener('click', function(e) {
+                                                    e.stopPropagation();
+                                                    document.querySelectorAll('.dropdown-menu').forEach(el => el.style.display = 'none');
+                                                    var menu = btn.parentElement.querySelector('.dropdown-menu');
+                                                    if (menu) menu.style.display = (menu.style.display !== 'block' ? 'block' : 'none');
+                                                })
+                                            });
+                                            document.addEventListener('click', function() {
+                                                document.querySelectorAll('.dropdown-menu').forEach(el => el.style.display = 'none');
+                                            });
+                                        </script>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-
-                </div>
-            </div>
-
-            <div id="tab-calon-sppg-mitra" class="tab-pane">
-                <div class="section-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-                        <div class="section-title" style="margin-bottom: 0;">Calon Lokasi SPPG</div>
-                        <button id="ajukanLokasiBtn" class="btn btn-primary"
-                            style="font-size:14px; padding: 8px 18px; display:flex; align-items:center;">
-                            <i class="bi bi-plus" style="margin-right:6px;"></i> Ajukan Lokasi Baru
-                        </button>
-                    </div>
-                    <div style="display: flex; align-items: center; margin-bottom: 24px;">
-                        <input type="text" class="form-control" placeholder="Cari"
-                            style="width: 220px; margin-right: 12px; padding: 6px 10px; font-size: 14px; border: 1.5px solid #E5E7EB; background: #FAFAFA; border-radius: 5px;"
-                            disabled>
-                    </div>
-                    <div style="text-align: center; margin: 64px 0 68px 0;">
-                        <div>
-                            <span
-                                style="display: inline-block; width: 38px; height: 38px; background: #F7F6FE; border-radius: 50%; line-height: 38px; text-align: center; font-size: 20px; margin-bottom: 14px; color: #D1D5DB; border: 1.5px solid #ECECEC;">
-                                <i class="bi bi-x"></i>
-                            </span>
-                        </div>
-                        <div style="font-size: 15px; color: #7B7B7B; font-weight: 500;">
-                            Tidak ada data yang ditemukan
-                        </div>
-                    </div>
-
-                    <!-- Pop Up Modal -->
-                    <div id="ajukanModal"
-                        style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100vw; height:100vh; background:rgba(49,52,62,0.12);">
-                        <div
-                            style="background:#fff; border-radius:12px; box-shadow:0 4px 32px #0001; max-width:350px; margin:120px auto 0 auto; padding:28px 24px; position:relative;">
-                            <button onclick="document.getElementById('ajukanModal').style.display='none'"
-                                style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:20px; color:#7B7B7B; cursor:pointer;"
-                                aria-label="Tutup">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                            <div style="text-align:center;">
-                                <div style="margin-bottom:20px;">
-                                    <i class="bi bi-exclamation-triangle" style="font-size: 42px; color:#FF885A;"></i>
-                                </div>
-                                <div style="font-size:17px; font-weight:600; margin-bottom:10px;">
-                                    Tidak bisa mengajukan lokasi
-                                </div>
-                                <div style="font-size: 15px; color: #7B7B7B;">
-                                    Pengajuan lokasi sudah ditutup.
-                                </div>
+                        {{-- <div
+                            style="font-size:12.5px; color:#7B7B7B; margin:18px 2px 8px 2px; display:flex; align-items:center; justify-content:space-between;">
+                            <div>Menampilkan 1 sampai 1 dari 1 hasil</div>
+                            <div>
+                                <select
+                                    style="padding:2px 11px;font-size:13px;border:1px solid #ECECEC;background:#FBFBFB;border-radius:4px;">
+                                    <option>per halaman</option>
+                                    <option selected>10</option>
+                                    <option>20</option>
+                                    <tr style="background: #FAFAFA;">
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Status</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            ID SPPG</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Provinsi</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Kota/Kabupaten</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Kecamatan</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Kelurahan/Desa</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Luas Lahan</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Luas Bangunan</th>
+                                        <th
+                                            style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #ECECEC;">
+                                            Kesiapan SPPG</th>
+                                        <th style="padding: 10px 12px; border-bottom: 1px solid #ECECEC;"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 10px 12px;">
+                                                <span
+                                                    style="background: #F3F7FF; color: #4767DA; font-size: 13px; border-radius: 4px; padding: 3px 10px; font-weight: 500;">
+                                                    Proses Persiapan
+                                                </span>
+                                            </td>
+                                            <td style="padding: 10px 12px;">B2GCL2GS</td>
+                                            <td style="padding: 10px 12px;">JAWA BARAT</td>
+                                            <td style="padding: 10px 12px;">KAB. BOGOR</td>
+                                            <td style="padding: 10px 12px;">BOJONG GEDE</td>
+                                            <td style="padding: 10px 12px;">RAGAJAYA</td>
+                                            <td style="padding: 10px 12px;">300 m2</td>
+                                            <td style="padding: 10px 12px;">300 m2</td>
+                                            <td style="padding: 10px 12px;">-</td>
+                                            <td style="padding: 10px 12px;"></td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
                             </div>
-                            <div style="text-align: center; margin-top: 26px;">
-                                <button onclick="document.getElementById('ajukanModal').style.display='none'"
-                                    class="btn btn-primary" style="min-width: 110px;">
-                                    Tutup
+
+                        </div> --}}
+                    </div>
+
+                    <div id="tab-calon-sppg-mitra" class="tab-pane">
+                        <div class="section-card">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                                <div class="section-title" style="margin-bottom: 0;">Calon Lokasi SPPG</div>
+                                <button id="ajukanLokasiBtn" class="btn btn-primary"
+                                    style="font-size:14px; padding: 8px 18px; display:flex; align-items:center;">
+                                    <i class="bi bi-plus" style="margin-right:6px;"></i> Ajukan Lokasi Baru
                                 </button>
                             </div>
-                        </div>
-                    </div>
-
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var btn = document.getElementById('ajukanLokasiBtn');
-                            var modal = document.getElementById('ajukanModal');
-                            if (btn) {
-                                btn.addEventListener('click', function() {
-                                    if (modal) modal.style.display = 'block';
-                                });
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-
-            <div id="tab-perwakilan" class="tab-pane">
-                <div class="section-card">
-                    <div style="margin-bottom:24px; display:flex; justify-content:space-between; align-items:center;">
-                        <div class="section-title" style="margin:0;">Perwakilan Yayasan</div>
-                        <button
-                            style="background: #173A63; color: #fff; border: none; border-radius: 6px; font-size: 14px; padding: 8px 18px; display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                            <i class="bi bi-plus" style="font-size: 16px;"></i> Tambah Perwakilan Yayasan
-                        </button>
-                    </div>
-                    <div
-                        style="background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.02); padding: 20px; overflow-x: auto;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <div></div>
-                            <div style="max-width:210px;">
+                            <div style="display: flex; align-items: center; margin-bottom: 24px;">
                                 <input type="text" class="form-control" placeholder="Cari"
-                                    style="width:100%;padding:7px 12px;font-size:14px;border:1.5px solid #E5E7EB;background:#F8FAFC;border-radius:5px;">
+                                    style="width: 220px; margin-right: 12px; padding: 6px 10px; font-size: 14px; border: 1.5px solid #E5E7EB; background: #FAFAFA; border-radius: 5px;"
+                                    disabled>
                             </div>
+                            <div style="text-align: center; margin: 64px 0 68px 0;">
+                                <div>
+                                    <span
+                                        style="display: inline-block; width: 38px; height: 38px; background: #F7F6FE; border-radius: 50%; line-height: 38px; text-align: center; font-size: 20px; margin-bottom: 14px; color: #D1D5DB; border: 1.5px solid #ECECEC;">
+                                        <i class="bi bi-x"></i>
+                                    </span>
+                                </div>
+                                <div style="font-size: 15px; color: #7B7B7B; font-weight: 500;">
+                                    Tidak ada data yang ditemukan
+                                </div>
+                            </div>
+
+                            <!-- Pop Up Modal -->
+                            <div id="ajukanModal"
+                                style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100vw; height:100vh; background:rgba(49,52,62,0.12);">
+                                <div
+                                    style="background:#fff; border-radius:12px; box-shadow:0 4px 32px #0001; max-width:350px; margin:120px auto 0 auto; padding:28px 24px; position:relative;">
+                                    <button onclick="document.getElementById('ajukanModal').style.display='none'"
+                                        style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:20px; color:#7B7B7B; cursor:pointer;"
+                                        aria-label="Tutup">
+                                        <i class="bi bi-x-lg"></i>
+                                    </button>
+                                    <div style="text-align:center;">
+                                        <div style="margin-bottom:20px;">
+                                            <i class="bi bi-exclamation-triangle"
+                                                style="font-size: 42px; color:#FF885A;"></i>
+                                        </div>
+                                        <div style="font-size:17px; font-weight:600; margin-bottom:10px;">
+                                            Tidak bisa mengajukan lokasi
+                                        </div>
+                                        <div style="font-size: 15px; color: #7B7B7B;">
+                                            Pengajuan lokasi sudah ditutup.
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center; margin-top: 26px;">
+                                        <button onclick="document.getElementById('ajukanModal').style.display='none'"
+                                            class="btn btn-primary" style="min-width: 110px;">
+                                            Tutup
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var btn = document.getElementById('ajukanLokasiBtn');
+                                    var modal = document.getElementById('ajukanModal');
+                                    if (btn) {
+                                        btn.addEventListener('click', function() {
+                                            if (modal) modal.style.display = 'block';
+                                        });
+                                    }
+                                });
+                            </script>
                         </div>
-                        <table style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;">
-                            <thead>
-                                <tr style="background:#F7F9FB;">
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        Name</th>
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        Email</th>
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        No. Telepon</th>
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        Lokasi Penugasan</th>
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        No. KTP</th>
-                                    <th
-                                        style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
-                                        Foto KTP</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding:10px 12px;">Lukmanul Hakim</td>
-                                    <td style="padding:10px 12px;">lukmanmbg01@gmail.com</td>
-                                    <td style="padding:10px 12px;">08998454419</td>
-                                    <td style="padding:10px 12px;">
-                                        <a href="#" style="color:#3375CB;text-decoration:underline;">-</a>
-                                    </td>
-                                    <td style="padding:10px 12px;">3201131911900008</td>
-                                    <td style="padding:10px 12px;">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    </div>
+
+                    <div id="tab-perwakilan" class="tab-pane">
+                        <div class="section-card">
+                            <div
+                                style="margin-bottom:24px; display:flex; justify-content:space-between; align-items:center;">
+                                <div class="section-title" style="margin:0;">Perwakilan Yayasan</div>
+                                <button
+                                    style="background: #173A63; color: #fff; border: none; border-radius: 6px; font-size: 14px; padding: 8px 18px; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <i class="bi bi-plus" style="font-size: 16px;"></i> Tambah Perwakilan Yayasan
+                                </button>
+                            </div>
+                            <div
+                                style="background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.02); padding: 20px; overflow-x: auto;">
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                                    <div></div>
+                                    <div style="max-width:210px;">
+                                        <input type="text" class="form-control" placeholder="Cari"
+                                            style="width:100%;padding:7px 12px;font-size:14px;border:1.5px solid #E5E7EB;background:#F8FAFC;border-radius:5px;">
+                                    </div>
+                                </div>
+                                <table style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;">
+                                    <thead>
+                                        <tr style="background:#F7F9FB;">
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                Name</th>
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                Email</th>
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                No. Telepon</th>
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                Lokasi Penugasan</th>
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                No. KTP</th>
+                                            <th
+                                                style="text-align:left;padding:9px 12px;font-weight:500;border-bottom:1px solid #ECECEC;">
+                                                Foto KTP</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding:10px 12px;">Lukmanul Hakim</td>
+                                            <td style="padding:10px 12px;">lukmanmbg01@gmail.com</td>
+                                            <td style="padding:10px 12px;">08998454419</td>
+                                            <td style="padding:10px 12px;">
+                                                <a href="#" style="color:#3375CB;text-decoration:underline;">-</a>
+                                            </td>
+                                            <td style="padding:10px 12px;">3201131911900008</td>
+                                            <td style="padding:10px 12px;">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="tab-riwayat" class="tab-pane">
+                        <div class="section-card">
+                            <div class="section-title">Riwayat Verifikasi Email</div>
+                            <p class="text-muted" style="font-size:14px;">Riwayat verifikasi email akan ditampilkan di
+                                sini.
+                            </p>
+                        </div>
                     </div>
 
                 </div>
-            </div>
-
-            <div id="tab-riwayat" class="tab-pane">
-                <div class="section-card">
-                    <div class="section-title">Riwayat Verifikasi Email</div>
-                    <p class="text-muted" style="font-size:14px;">Riwayat verifikasi email akan ditampilkan di
-                        sini.
-                    </p>
-                </div>
-            </div>
-
-        </div>
 
 
     </main>
@@ -744,7 +900,59 @@
     <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">
         <i class="bi bi-arrow-up"></i>
     </button>
+    <div id="confirmationModal"
+        style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.18);">
+        <div
+            style="position:relative; width:100vw; height:100vh; display:flex; align-items:flex-start; justify-content:center;">
+            <div id="modal-card"
+                style="background:#fff; border-radius:16px; width:100%; max-width:410px; min-width:320px; padding:28px 27px 24px 27px; box-shadow: 0 6px 32px rgba(0,0,0,0.12);display:flex; flex-direction:column; align-items:center; margin-top:32px; position:relative;">
+                <img src="{{ asset('icon/Logo_Badan_Gizi_Nasional_(2024).png') }}" alt="Logo Badan Gizi Nasional"
+                    style="width:110px; height:110px; object-fit:contain; margin-bottom:22px; background:#fff; border-radius:50%;border:3.5px solid #e5e7eb;">
+                <div
+                    style="font-size:22px; font-weight:700; color:#232b36; margin-bottom:14px; text-align:center; line-height:1.2;">
+                    Penutupan Pendaftaran<br> Mitra BGN
+                </div>
+                <div style="font-size:15px; color:#556070; line-height:1.7; text-align:center; margin-bottom:30px;">
+                    Pendaftaran Mitra mitra Satuan Pelayanan Pemenuhan Gizi (SPPG) untuk Program Makan Bergizi
+                    Gratis (MBG) telah ditutup guna mengendalikan jumlah dan sebaran SPPG, agar layanan gizi dapat
+                    tersebar lebih merata. Kami mohon maaf atas ketidaknyamanan yang mungkin timbul dan berterima
+                    kasih atas pengertian serta kerja samanya.
+                </div>
+                <button onclick="hideConfirmationModal()"
+                    style="padding:11px 38px;border-radius:8px;border:none;background:#142544;color:#fff;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:12px;">
+                    <i class="bi bi-arrow-left" style="font-size:17px;"></i> Kembali
+                </button>
+                <div style="display:flex; gap:22px; align-items:center; justify-content:center; margin-top:3px;">
+                    <a href="https://instagram.com" target="_blank" style="color:#232b36;">
+                        <i class="bi bi-instagram" style="font-size:20px;"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" style="color:#232b36;">
+                        <i class="bi bi-facebook" style="font-size:19px;"></i>
+                    </a>
+                    <a href="mailto:info@bgn.go.id" style="color:#232b36;">
+                        <i class="bi bi-envelope" style="font-size:19px;"></i>
+                    </a>
+                </div>
+                <button onclick="hideConfirmationModal()"
+                    style="position:absolute;top:15px;right:15px;border:none;background:none;font-size:25px;line-height:1;color:#bbc0cd;cursor:pointer;padding:0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showConfirmationModal() {
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
 
+        function hideConfirmationModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+
+        function handleConfirm() {
+            showConfirmationModal();
+        }
+    </script>
     <script>
         function switchTab(btn, tabId) {
             document.querySelectorAll('.nav-tabs-custom .nav-link').forEach(b => b.classList.remove('active'));
