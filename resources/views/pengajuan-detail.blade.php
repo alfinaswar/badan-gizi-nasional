@@ -271,18 +271,27 @@
         }
 
         .btn-process {
-            padding: 10px 22px;
-            background: #0f1f3d;
-            color: #fff;
-            border: 1.5px solid #0f1f3d;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 8px 16px;
+            background: #f6f9ff;
+            color: #355bfe;
+            border: 1.5px solid #e3eafd;
+            border-radius: 9px;
+            font-size: 17px;
             font-weight: 600;
             font-family: 'Plus Jakarta Sans', sans-serif;
             cursor: pointer;
             white-space: nowrap;
             text-decoration: none;
             display: inline-block;
+            box-shadow: none;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .btn-process:hover,
+        .btn-process:focus {
+            background: #e3eafd;
+            color: #2247d1;
+            border-color: #c4d4fa;
         }
 
         /* Custom Leaflet popup */
