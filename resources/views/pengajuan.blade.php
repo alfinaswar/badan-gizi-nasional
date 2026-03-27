@@ -235,8 +235,14 @@
         }
 
         .badge-proses {
-            background: #fef9c3;
-            color: #a16207;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 3px 14px;
+            border-radius: 9px;
+            box-shadow: none;
+            border: none;
         }
 
         .badge-terima {
