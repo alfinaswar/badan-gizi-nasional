@@ -51,18 +51,29 @@
             </div>
 
             {{-- Tabs --}}
-            <div class="nav-tabs-custom" role="tablist">
-                <button class="nav-link active" onclick="switchTab(this,'umum')"><strong>Umum</strong></button>
-                <button class="nav-link" onclick="switchTab(this,'legal')"><strong>Legal</strong></button>
-                <button class="nav-link" onclick="switchTab(this,'keuangan')"><strong>Keuangan</strong></button>
-                <button class="nav-link" onclick="switchTab(this,'calon-sppg')"><strong>Calon SPPG <span
-                            class="tab-badge">1</span></strong></button>
-                <button class="nav-link" onclick="switchTab(this,'calon-sppg-mitra')"><strong>Calon SPPG Mitra <span
-                            class="tab-badge">0</span></strong></button>
-                <button class="nav-link" onclick="switchTab(this,'perwakilan')"><strong>Perwakilan Yayasan <span
-                            class="tab-badge">1</span></strong></button>
-                <button class="nav-link" onclick="switchTab(this,'riwayat')"><strong>Riwayat Verifikasi Email <span
-                            class="tab-badge">0</span></strong></button>
+            <div class="nav-tabs-scroll-wrapper"
+                style="overflow-x: auto; white-space: nowrap; border-bottom: 2px solid #e5e7eb; margin-bottom:12px; position:relative;">
+                <div class="nav-tabs-custom" role="tablist" style="min-width:1900px;display:inline-flex;gap:4px;">
+                    <button class="nav-link active" onclick="switchTab(this,'umum')"
+                        style="white-space:nowrap;"><strong>Umum</strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'legal')"
+                        style="white-space:nowrap;"><strong>Legal</strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'keuangan')"
+                        style="white-space:nowrap;"><strong>Keuangan</strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'calon-sppg')"
+                        style="white-space:nowrap;"><strong>Calon SPPG <span class="tab-badge">1</span></strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'calon-sppg-mitra')"
+                        style="white-space:nowrap;"><strong>Calon SPPG Mitra <span
+                                class="tab-badge">0</span></strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'perwakilan')"
+                        style="white-space:nowrap;"><strong>Perwakilan Yayasan <span
+                                class="tab-badge">1</span></strong></button>
+                    <button class="nav-link" onclick="switchTab(this,'riwayat')" style="white-space:nowrap;"><strong>Riwayat
+                            Verifikasi Email <span class="tab-badge">0</span></strong></button>
+                </div>
+                <div
+                    style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#fcfcfc;z-index:1;pointer-events:none;">
+                </div>
             </div>
 
             {{-- Tab: Umum --}}
@@ -105,7 +116,31 @@
                                 <option selected>Yayasan</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-primary" style="margin-top:8px;">Simpan</button>
+                        <button type="button"
+                            style="
+    margin-top:8px;
+    background:#f9fafb;
+    color:#9ca3af;
+    border:1.5px solid #e5e7eb;
+    border-radius:10px;
+    padding:9px 20px;
+    font-size:14px;
+    font-weight:400;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="3.5" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                            Simpan
+                        </button>
                     </form>
 
                     {{-- Form Alamat Mitra --}}
@@ -162,8 +197,31 @@
                             <textarea class="form-control" rows="2">Jl Bakti Kp Ceringin Rt 04/08 Desa Ragajaya </textarea>
                         </div>
 
-                        <button type="button" class="btn btn-primary"
-                            style="float:right;margin-top:6px;">Simpan</button>
+                        <button type="button"
+                            style="
+    margin-top:8px;
+    background:#f9fafb;
+    color:#9ca3af;
+    border:1.5px solid #e5e7eb;
+    border-radius:10px;
+    padding:9px 20px;
+    font-size:14px;
+    font-weight:400;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="3.5" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                            Simpan
+                        </button>
                     </form>
                     {{-- End Form Alamat Mitra --}}
                 </div>
